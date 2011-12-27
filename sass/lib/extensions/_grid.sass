@@ -1,0 +1,22 @@
+@import lib/oocss/grid
+// @extension of oocss grid
+// @note ensures that a certain space between each element is observed
+// needs this kind of DOM structure
+// <div class="row">
+//   <div class="size1of2">
+//     <div class="inner">inner</div>
+//   </div>
+//   <div class="lastUnit">
+//     <div class="inner">inner</div>
+//   </div>
+// </div>
+$oocssGridGutterWidth: 20px !default
+
+=oocssGridRow($space: $oocssGridGutterWidth)
+  .row
+    +oocssClearfix
+    margin-left: -$space
+    > [class*=size],
+    > .lastUnit
+      > .inner
+        margin-left: $space
