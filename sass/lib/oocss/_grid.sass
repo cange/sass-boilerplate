@@ -1,0 +1,44 @@
+// based on the oocss by stubbornella (Nicole Sullivan)
+// @link https://github.com/stubbornella/oocss/blob/master/core/grid/grid.css
+// @source https://gist.github.com/1021575
+
+// Definition
+=oocssClearfix
+  overflow: hidden
+  *overflow: visible
+  *zoom: 1
+
+=oocssGridLast
+  +oocssClearfix
+  float: none
+  width: auto
+  _position: relative
+  _left: -3px
+  _margin-right: -3px
+
+// @link https://gist.github.com/91663 by @chriseppstein
+=oocssSize($n, $m)
+  @if $n == $m
+    float: none
+  @else
+    width: percentage($n / $m)
+
+=oocssGrid
+  .line
+    +oocssClearfix
+    // @note Find all direct child elements with the .size# class notation
+    > [class*=size]
+      float: left
+  .size1of1
+    +oocssSize(1, 1)
+  @for $m from 1 through 5
+    @for $n from 1 to $m
+      .size#{$n}of#{$m}
+        +oocssSize($n, $m)
+  .lastUnit
+    +oocssGridLast
+  .unitRight
+    float: right
+
+// initialize
++oocssGrid
