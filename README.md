@@ -6,8 +6,15 @@
 
   Sass-Boilerplate combines the CSS philosophies of [OOCSS][oocss] – "Object Oriented CSS" and the hierachy of [SMACSS][smacss] – "Scalable and Modular Architecture for CSS"
 
-  This isn't a general solution or recommendation how to setup your Sass project. This is __my__ own solution for it.
-
+  This isn't a general solution or recommendation how to setup your Sass project. 
+  Is more a setup for my projects.
+  
+  This Boilerplate includes following basic definitions:
+  
+  * Fluid grid system, with and without cutter space
+  * SMACSS SASS structure
+  * basic pragmatic headlines
+  * CSS grid debug panel
 
 ## Setup
 
