@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="debug">
+  <head>
+    <meta charset="utf-8">
+    <title>Styleguide</title>
+    <link href="../stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/docs.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="doc">
+    <div data-scrollspy="scrollspy" class="doc-topbar">
+      <div class="doc-topbar-inner">
+        <div class="doc-container">
+          <a href="#" class="doc-brand">Styleguide</a>
+          <ul class="doc-nav">
+            <li><a href="#doc-headlines">Headlines</a></li>
+            <li><a href="#doc-grids">Grid</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="doc-page">
+
+      <div class="doc-container">
+
+        <section id="doc-headlines" class="doc">
+          <h2 class="doc">Headlines</h2>
+          <div class="doc-bd">
+            <div class="line">
+              <div class="col-1-4">
+                Pragmatic headlines or <em>double-stranded heading
+                hierarchy</em>. This is the practice of defining a class every
+                time you define a heading in CSS.
+                <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/">more</a>
+              </div>
+              <div class="col-3-4">
+                <h3 class="doc">Live-Example</h3>
+                <div class="doc-example">
+                  <div class="doc-bd">
+                    <h1><code>h1</code> or <code>.h1</code> Headline</h1>
+                    <h2><code>h2</code> or <code>.h2</code> Headline</h2>
+                    <h3><code>h3</code> or <code>.h3</code> Headline</h3>
+                    <h4><code>h4</code> or <code>.h4</code> Headline</h4>
+                    <h5><code>h5</code> or <code>.h5</code> Headline</h5>
+                    <h6><code>h6</code> or <code>.h6</code> Headline</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="doc-grids" class="doc">
+          <section class="doc-example">
+            <h2>Grid</h2>
+            <h3>
+              Live-Example –
+              <code>.line &gt; .col-#</code>
+            </h3>
+            <div class="doc-bd">
+              <div class="doc line">
+                <div class="col-1-1">col-1-1</div>
+              </div>
+              <div class="doc line">
+                <div class="col-1-5">col-1-5</div>
+                <div class="col-4-5">col-4-5</div>
+              </div>
+              <div class="doc line">
+                <div class="col-1-3">col-1-3</div>
+                <div class="col-2-3">col-2-3</div>
+              </div>
+              <div class="doc line">
+                <div class="col-2-5">col-2-5</div>
+                <div class="col-3-5">col-3-5</div>
+              </div>
+              <div class="doc line">
+                <div class="col-1-2">col-1-2</div>
+                <div class="col-1-4">col-1-4</div>
+                <div class="col-1-4">col-1-4</div>
+              </div>
+              <h3>Nested columns</h3>
+              <div class="doc line">
+                <div class="col-1-2">
+                  col-1-2
+                  <div class="doc line">
+                    <div class="col-1-2">col-1-2</div>
+                    <div class="col-1-2">col-1-2</div>
+                  </div>
+                </div>
+                <div class="col-1-2">
+                  col-1-2
+                  <div class="doc line">
+                    <div class="col-1-2">col-1-2</div>
+                    <div class="col-1-2">col-1-2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="doc-example">
+            <h2>Grid row with cutter space</h2>
+            <h3>
+              Live-Example –
+              <code>.row &gt; .col-# &gt; .cell</code>
+            </h3>
+          <div class="doc-bd">
+              <div class="doc row">
+                <div class="col-1-1"><div class="cell">col-1-1</div></div>
+              </div>
+              <div class="doc row">
+                <div class="col-1-5"><div class="cell">col-1-5</div></div>
+                <div class="col-4-5"><div class="cell">col-4-5</div></div>
+              </div>
+              <div class="doc row">
+                <div class="col-1-3"><div class="cell">col-1-3</div></div>
+                <div class="col-2-3"><div class="cell">col-2-3</div></div>
+              </div>
+              <div class="doc row">
+                <div class="col-2-5"><div class="cell">col-2-5</div></div>
+                <div class="col-3-5"><div class="cell">col-3-5</div></div>
+              </div>
+              <div class="doc row">
+                <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                <div class="col-1-4"><div class="cell">col-1-4</div></div>
+                <div class="col-1-4"><div class="cell">col-1-4</div></div>
+              </div>
+              <h3>Nested columns</h3>
+              <div class="doc row">
+                <div class="col-1-2">
+                  <div class="cell">
+                    col-1-2
+                    <div class="doc row">
+                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-1-2">
+                  <div class="cell">
+                    col-1-2
+                    <div class="doc row">
+                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="../javascripts/lib/prettify.js"></script>
+    <script src="../javascripts/lib/debug.js"></script>
+    <script src="../javascripts/lib/docs.js"></script>
+
+  </body>
+</html>
+

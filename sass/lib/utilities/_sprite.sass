@@ -1,0 +1,44 @@
+// https://gist.github.com/1622287
+// @module sprite grid helper
+// default route to the image directory
+$spriteGridBasePath: '/images/' !default
+
+// default grid size
+$spriteGridSize: 16 !default
+$spriteGridSizeY: 16 !default
+$spriteGridName: 'icons'
+
+// update sprite size for both sprite size properties
+=spriteGridSize($size: $spriteGridSize, $sizeY: false)
+  $spriteGridSize: $size
+  @if $sizeY == false
+    $spriteGridSizeY: $size
+  @else
+    $spriteGridSizeY: $sizeY
+
+// @example
+// $spriteGridSize: 16
+// .icon
+//   +spriteGrid(1, 3)
+// /* output */
+// .icon {
+//    height: 16px;
+//    width: 16px;
+//    display: inline-block;
+//    background-image: url(/images/icons-16.png);
+//    background-repeat: no-repeat;
+//    background-position: -16px -48px;
+// }
+=spriteGrid($x: 0, $y: 0, $size: false, $typeName: $spriteGridName, $sizeY: false)
+  +spriteGridSize($size, $sizeY)
+  background:
+    image: url(#{$spriteGridBasePath}#{$typeName}-#{$size}.png)
+    repeat: no-repeat
+  display: inline-block
+  height: #{$sizeY}px
+  overflow: hidden
+  +spriteGridPosition($x, $y, $size, $sizeY)
+  width: #{$size}px
+
+=spriteGridPosition($x: 0, $y: 0, $size: $spriteGridSize, $sizeY: $spriteGridSizeY)
+  background-position: #{($x * -$size)}px #{($y * -$sizeY)}px

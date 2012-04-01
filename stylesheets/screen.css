@@ -1,8 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +19,450 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.11.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
+}
+
+/*
+ * Spacing classes
+ * Should be used to modify the default spacing between objects (not between nodes of the same object)
+ * Please use judiciously. You want to be using defaults most of the time, these are exceptions!
+ * <type><location><size> */
+/* ====== Default spacing ====== */
+/* spacing helpers
+ *p,m = padding,margin
+ *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+ *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0) */
+h1, .h1 {
+  font-size: 2em;
+  margin: 0 0 0.67em;
+}
+
+h2, .h1 {
+  font-size: 1.5em;
+  margin: 0 0 0.83em;
+}
+
+h3, .h3 {
+  font-size: 1.17em;
+  margin: 0 0 1em;
+}
+
+h4, .h4 {
+  font-size: 1em;
+  margin: 0 0 1.33em;
+}
+
+h5, .h5 {
+  font-size: 0.83em;
+  margin: 0 0 1.67em;
+}
+
+h6, .h6 {
+  font-size: 0.75em;
+  margin: 0 0 2.33em;
+}
+
+body, form {
+  margin: 0;
+  padding: 0;
+  line-height: 120%;
+}
+
+a {
+  color: #003399;
+}
+a:hover {
+  color: #0033ff;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+p {
+  line-height: 0.5em;
+}
+
+.header, .article, .footer {
+  width: 960px;
+  margin: auto;
+}
+
+.article {
+  border: solid #cccccc;
+  border-width: 1px 0 0;
+}
+
+.module span {
+  padding: 5px;
+}
+
+.line > [class*='col-'] {
+  margin-left: 0;
+}
+
+.row, .line {
+  zoom: 1;
+}
+.row:before, .row:after, .line:before, .line:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.row:after, .line:after {
+  clear: both;
+}
+
+[class*='col-'] {
+  display: inline;
+  float: left;
+}
+
+.row {
+  margin-left: -20px;
+}
+.row .cell {
+  margin-left: 20px;
+}
+
+.snap-right {
+  float: right;
+}
+
+.col-1-1 {
+  width: 100%;
+}
+
+.col-1-2 {
+  width: 50%;
+}
+
+.col-1-3 {
+  width: 33.333%;
+}
+
+.col-2-3 {
+  width: 66.667%;
+}
+
+.col-1-4 {
+  width: 25%;
+}
+
+.col-2-4 {
+  width: 50%;
+}
+
+.col-3-4 {
+  width: 75%;
+}
+
+.col-1-5 {
+  width: 20%;
+}
+
+.col-2-5 {
+  width: 40%;
+}
+
+.col-3-5 {
+  width: 60%;
+}
+
+.col-4-5 {
+  width: 80%;
+}
+
+.debug.active {
+  /* grids debug */
+}
+.debug.active [title=todo]:after {
+  content: "*";
+  color: red;
+  position: absolute;
+}
+.debug.active .line {
+  background-color: rgba(17, 0, 17, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
+}
+.debug.active .line:hover:before, .debug.active .line:focus:before {
+  content: "line";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .row {
+  background-color: rgba(17, 136, 17, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
+}
+.debug.active .row:hover:before, .debug.active .row:focus:before {
+  content: "row";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-1-1 {
+  background-color: rgba(0, 0, 255, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
+}
+.debug.active .col-1-1:hover:before, .debug.active .col-1-1:focus:before {
+  content: "col-1-1";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-1-2 {
+  background-color: rgba(0, 255, 255, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+}
+.debug.active .col-1-2:hover:before, .debug.active .col-1-2:focus:before {
+  content: "col-1-2";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-1-3 {
+  background-color: rgba(255, 255, 0, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
+}
+.debug.active .col-1-3:hover:before, .debug.active .col-1-3:focus:before {
+  content: "col-1-3";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-1-4 {
+  background-color: rgba(255, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
+}
+.debug.active .col-1-4:hover:before, .debug.active .col-1-4:focus:before {
+  content: "col-1-4";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-1-5 {
+  background-color: rgba(255, 0, 255, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
+}
+.debug.active .col-1-5:hover:before, .debug.active .col-1-5:focus:before {
+  content: "col-1-5";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-2-3 {
+  background-color: rgba(0, 255, 0, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
+}
+.debug.active .col-2-3:hover:before, .debug.active .col-2-3:focus:before {
+  content: "col-2-3";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-3-4 {
+  background-color: rgba(102, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
+}
+.debug.active .col-3-4:hover:before, .debug.active .col-3-4:focus:before {
+  content: "col-3-4";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-2-5 {
+  background-color: rgba(102, 0, 102, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
+}
+.debug.active .col-2-5:hover:before, .debug.active .col-2-5:focus:before {
+  content: "col-2-5";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-3-5 {
+  background-color: rgba(102, 102, 0, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
+}
+.debug.active .col-3-5:hover:before, .debug.active .col-3-5:focus:before {
+  content: "col-3-5";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .col-4-5 {
+  background-color: rgba(0, 102, 102, 0.05);
+  -moz-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
+  -o-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
+  box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
+}
+.debug.active .col-4-5:hover:before, .debug.active .col-4-5:focus:before {
+  content: "col-4-5";
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px black;
+  font-weight: bold;
+}
+.debug.active .cell {
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
+  -o-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
+}
+
+#debug-panel {
+  border-bottom: 1px solid #999999;
+  background-color: #cccccc;
+  background-color: rgba(204, 204, 204, 0.8);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -moz-transition-delay: 0.5s;
+  -webkit-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+#debug-panel .inner {
+  padding: 5px;
+}
+#debug-panel:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  top: 0;
+}
+#debug-panel a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+#debug-panel a:active, #debug-panel a:focus {
+  outline: none;
+}
+#debug-panel a:hover {
+  color: black;
+}
+#debug-panel a:not(:first-child):before {
+  content: "|";
+  color: black;
+  padding: 0 5px;
+}
+
+.debug-colors {
+  float: right;
+  list-style: none;
+}
+.debug-colors li {
+  float: left;
+}
+
+.debug-color {
+  border: 1px solid black;
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  margin-right: 5px;
 }

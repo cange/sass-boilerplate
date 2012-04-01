@@ -1,0 +1,90 @@
+=-debugBox($color, $name: false, $size: 1px)
+  background-color: rgba($color, .05)
+  +box-shadow(0 0 0 1px rgba($color, .2) inset)
+  @if $name != false
+    &:hover, &:focus
+      &:before
+        content: $name
+        position: absolute
+        color: white
+        +text-shadow(0 0 1px black)
+        font-weight: bold
+
+
+=debug
+  .debug.active
+    [title=todo]:after
+      content: '*'
+      color: red
+      position: absolute
+
+    /* grids debug */
+    .line
+      +-debugBox(#101, 'line')
+    .row
+      +-debugBox(#181, 'row')
+    .col-1-1
+      +-debugBox(#00f, 'col-1-1')
+    .col-1-2
+      +-debugBox(#0ff, 'col-1-2')
+    .col-1-3
+      +-debugBox(#ff0, 'col-1-3')
+    .col-1-4
+      +-debugBox(#f00, 'col-1-4')
+    .col-1-5
+      +-debugBox(#f0f, 'col-1-5')
+    .col-2-3
+      +-debugBox(#0f0, 'col-2-3')
+    .col-3-4
+      +-debugBox(#600, 'col-3-4')
+    .col-2-5
+      +-debugBox(#606, 'col-2-5')
+    .col-3-5
+      +-debugBox(#660, 'col-3-5')
+    .col-4-5
+      +-debugBox(#066, 'col-4-5')
+    .cell
+      +box-shadow(0 0 0 1px rgba(red, .6) inset)
+  // @module
+  #debug-panel
+    border-bottom: 1px solid #999
+    background-color: #ccc
+    background-color: rgba(#ccc, .8)
+    +background-image(linear-gradient(rgba(black, 0) 80%, rgba(black, .1)))
+    position: fixed
+    top: -20px
+    width: 100%
+    +opacity(.1)
+    +transition-property(all)
+    +transition-duration(.2s)
+    +transition-delay(.5s)
+    .inner
+      padding: 5px
+    &:hover
+      +opacity(1)
+      +transition-delay(0s)
+      top: 0
+    a
+      +unstyled-link
+      &:hover
+        color: black
+      cursor: pointer
+      text-decoration: none
+      &:not(:first-child)
+        &:before
+          content: "|"
+          color: black
+          padding: 0 5px
+
+  .debug-colors
+    float: right
+    list-style: none
+    li
+      float: left
+
+  .debug-color
+    border: 1px solid black
+    height: 10px
+    width: 10px
+    display: inline-block
+    margin-right: 5px
