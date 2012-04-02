@@ -1,5 +1,8 @@
 $(function () {
-   function sortByAlphabet (o) {
+
+  'use strict';
+
+   function sortByAlphabet(o) {
     var sorted = {}, key, a = [];
 
     for (key in o) {
@@ -27,11 +30,11 @@ $(function () {
   // sort by alphabet
   colors = sortByAlphabet(colors);
 
-  function colorSquare (color, name) {
+  function colorSquare(color, name) {
     return '<div class="debug-color" style="background-color:'+color+'" title="$'+name+' '+color+'"></div>';
   }
 
-  function buildColorSquares () {
+  function buildColorSquares() {
     var colorHTML = '';
     for (var color in colors) {
       colorHTML += '<li>' + colorSquare(colors[color], color) + '</li>';

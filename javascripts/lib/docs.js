@@ -1,6 +1,7 @@
 $(function () {
 
   'use strict';
+
   /**
    * Observe the followng special class selectors "-d", "d-", "-d-" and wrapped the elements with a strong tag.
    * @example
@@ -12,10 +13,10 @@ $(function () {
    *   <strong>&lt;span&gt;bar&lt;/span&gt;</strong>
    * &lt;/div&gt;
    */
-  function codeHighlight () {
+  function codeHighlight() {
     $('.doc-example .doc-bd').each(function () {
       var $code = $(this),
-        $link = $('<a class="doc_pill" data-label="Hide source">Show source</a>')
+        $link = $('<a class="doc-pill" data-label="Hide source">Show source</a>')
       ;
       $link
         .insertAfter($code)
