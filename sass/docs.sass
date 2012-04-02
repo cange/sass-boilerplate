@@ -142,14 +142,16 @@ body.doc
 .doc-pill
   +unstyled-link
   +border-radius(3px)
-  background-color: #BFBFBF
-  color: #FFF
+  background-color: $docGrey
+  color: white
   font-size: 10px
   font-weight: bold
   text-decoration: none
   text-transform: uppercase
   white-space: nowrap
-  padding: 1px 3px 2px
+  padding: 2px 3px
+  &:hover, &:focus
+    color: darken(white, 8)
 
 a.doc
   +unstyled-link

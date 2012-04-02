@@ -8,20 +8,26 @@
 // styling for how that element should look in all occurrences on the page.
 @import base/headings
 // Like these
-body, form
-  margin: 0
-  padding: 0
-  line-height: 120%
 
-a
-  color: #039
-  &:hover
-    color: #03f
+=base
+  +headings
 
-strong
-  font-weight: bold
-em
-  font-style: italic
-p
-  line-height: .5em
+  body, form
+    font-family: $fontRegular
+    line-height: 1.25em
+    margin: 0
+    padding: 0
 
+  a
+    color: $blue
+    &:hover
+      color: $blueDark
+
+  strong
+    font-weight: bold
+
+  em
+    font-style: italic
+
+  p
+    margin-bottom: 0.5em

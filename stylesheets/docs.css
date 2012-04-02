@@ -200,17 +200,20 @@ body.doc {
   -ms-border-radius: 3px;
   -khtml-border-radius: 3px;
   border-radius: 3px;
-  background-color: #bfbfbf;
+  background-color: #93a1a1;
   color: white;
   font-size: 10px;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  padding: 1px 3px 2px;
+  padding: 2px 3px;
 }
 .doc-pill:active, .doc-pill:focus {
   outline: none;
+}
+.doc-pill:hover, .doc-pill:focus {
+  color: #ebebeb;
 }
 
 a.doc {

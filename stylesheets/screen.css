@@ -64,73 +64,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  *p,m = padding,margin
  *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
  *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0) */
-h1, .h1 {
-  font-size: 2em;
-  margin: 0 0 0.67em;
+@-webkit-keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 -18px;
+  }
 }
 
-h2, .h1 {
-  font-size: 1.5em;
-  margin: 0 0 0.83em;
+@-moz-keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 -18px;
+  }
 }
 
-h3, .h3 {
-  font-size: 1.17em;
-  margin: 0 0 1em;
-}
+@keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
 
-h4, .h4 {
-  font-size: 1em;
-  margin: 0 0 1.33em;
-}
-
-h5, .h5 {
-  font-size: 0.83em;
-  margin: 0 0 1.67em;
-}
-
-h6, .h6 {
-  font-size: 0.75em;
-  margin: 0 0 2.33em;
-}
-
-body, form {
-  margin: 0;
-  padding: 0;
-  line-height: 120%;
-}
-
-a {
-  color: #003399;
-}
-a:hover {
-  color: #0033ff;
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-p {
-  line-height: 0.5em;
-}
-
-.header, .article, .footer {
-  width: 960px;
-  margin: auto;
-}
-
-.article {
-  border: solid #cccccc;
-  border-width: 1px 0 0;
-}
-
-.module span {
-  padding: 5px;
+  40% {
+    background-position: 0 -18px;
+  }
 }
 
 .line > [class*='col-'] {
@@ -207,6 +168,190 @@ p {
 
 .col-4-5 {
   width: 80%;
+}
+
+h1, .h1 {
+  font-size: 22px;
+  margin: 0 0 0.67em;
+}
+
+h2, .h1 {
+  font-size: 20px;
+  margin: 0 0 0.83em;
+}
+
+h3, .h3 {
+  font-size: 16px;
+  margin: 0 0 1em;
+}
+
+h4, .h4 {
+  font-size: 14px;
+  margin: 0 0 1.33em;
+}
+
+h5, .h5 {
+  font-size: 12px;
+  margin: 0 0 1.67em;
+}
+
+h6, .h6 {
+  font-size: 12px;
+  margin: 0 0 2.33em;
+}
+
+body, form {
+  font-family: Ubuntu, "Lucida Sans", "Lucida Grande", sans-serif;
+  line-height: 1.25em;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: blue;
+}
+a:hover {
+  color: #4040ff;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+.page {
+  width: 960px;
+  margin: auto;
+}
+
+.head {
+  background-color: #73c2ff;
+}
+
+.foot {
+  background-color: #40acff;
+}
+
+.body {
+  border: solid #0000a7;
+  border-width: 1px 0 0;
+}
+
+.btn {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  background-repeat: repeat-x;
+  border: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #40acff;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #73c2ff), color-stop(100%, #40acff));
+  background-image: -webkit-linear-gradient(#73c2ff, #40acff);
+  background-image: -moz-linear-gradient(#73c2ff, #40acff);
+  background-image: -o-linear-gradient(#73c2ff, #40acff);
+  background-image: -ms-linear-gradient(#73c2ff, #40acff);
+  background-image: linear-gradient(#73c2ff, #40acff);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF73C2FF', endColorstr='#FF40ACFF');
+  text-shadow: 1px 1px 0px #40acff;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: Ubuntu, "Lucida Sans", "Lucida Grande", sans-serif;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  line-height: 2em;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -moz-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.btn:active, .btn:focus {
+  outline: none;
+}
+.btn:hover, .btn:focus {
+  background-position: 0 -18px;
+  color: white;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF40ACFF', endColorstr='#FF40ACFF');
+}
+.btn:focus {
+  -moz-animation-name: background-highlight;
+  -webkit-animation-name: background-highlight;
+  -o-animation-name: background-highlight;
+  -ms-animation-name: background-highlight;
+  -khtml-animation-name: background-highlight;
+  animation-name: background-highlight;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -khtml-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  -o-animation-timing-function: ease-out;
+  -ms-animation-timing-function: ease-out;
+  -khtml-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -khtml-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.btn {
+  *display: inline;
+}
+.btn::-moz-focus-inner {
+  border: none;
+}
+.btn:hover, .btn:focus {
+  text-decoration: none;
+}
+
+.btn-small {
+  line-height: 1.6em;
+}
+
+.btn-medium {
+  line-height: 2.6em;
+}
+
+.btn-large {
+  font-size: 14px;
+  line-height: 3.2em;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.disabled, [disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+.btn-fixed {
+  min-width: 140px;
 }
 
 .debug.active {

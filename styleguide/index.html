@@ -13,6 +13,7 @@
           <a href="#" class="doc-brand">Styleguide</a>
           <ul class="doc-nav">
             <li><a href="#doc-headlines">Headlines</a></li>
+            <li><a href="#doc-buttons">Buttons</a></li>
             <li><a href="#doc-grids">Grid</a></li>
           </ul>
         </div>
@@ -25,23 +26,69 @@
         <section id="doc-headlines" class="doc">
           <h2 class="doc">Headlines</h2>
           <div class="doc-bd">
-            <div class="line">
+            <div class="row">
               <div class="col-1-4">
-                Pragmatic headlines or <em>double-stranded heading
-                hierarchy</em>. This is the practice of defining a class every
-                time you define a heading in CSS.
-                <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/">more</a>
+                <div class="cell">
+                  Pragmatic headlines or <em>double-stranded heading
+                  hierarchy</em>. This is the practice of defining a class every
+                  time you define a heading in CSS.
+                  <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/">more</a>
+                </div>
               </div>
               <div class="col-3-4">
-                <h3 class="doc">Live-Example</h3>
-                <div class="doc-example">
-                  <div class="doc-bd">
-                    <h1><code>h1</code> or <code>.h1</code> Headline</h1>
-                    <h2><code>h2</code> or <code>.h2</code> Headline</h2>
-                    <h3><code>h3</code> or <code>.h3</code> Headline</h3>
-                    <h4><code>h4</code> or <code>.h4</code> Headline</h4>
-                    <h5><code>h5</code> or <code>.h5</code> Headline</h5>
-                    <h6><code>h6</code> or <code>.h6</code> Headline</h6>
+                <div class="cell">
+                  <h3 class="doc">Live-Example</h3>
+                  <div class="doc-example">
+                    <div class="doc-bd">
+                      <h1><code>h1</code> or <code>.h1</code> Headline</h1>
+                      <h2><code>h2</code> or <code>.h2</code> Headline</h2>
+                      <h3><code>h3</code> or <code>.h3</code> Headline</h3>
+                      <h4><code>h4</code> or <code>.h4</code> Headline</h4>
+                      <h5><code>h5</code> or <code>.h5</code> Headline</h5>
+                      <h6><code>h6</code> or <code>.h6</code> Headline</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="doc-buttons" class="doc">
+          <h2 class="doc">Buttons</h2>
+          <div class="doc-bd">
+            <div class="row">
+              <div class="col-1-4">
+                <div class="cell">
+                  Specific button styles use the base class
+                  <code>.btn</code>. For further base defintions
+                  you can use these classes <code>.btn-small,
+                    .btn-medium, btn-large, .btn-fixed</code> and
+                  <code>.disabled|[disabled="disabled"]</code>.
+                </div>
+              </div>
+              <div class="col-3-4">
+                <div class="cell">
+                  <h3 class="doc">Live-Example</h3>
+                  <div class="doc-example">
+                    <div class="doc-bd">
+                      <a class="btn" href="#">Default button as a-tag</a>
+                      <button class="btn" type="button">Default button as button-tag</button>
+                      <br>
+                      <br>
+                      <a class="btn btn-small" href="#">Small button as a-tag</a>
+                      <button class="btn btn-small" type="button">Small button as button-tag</button>
+                      <br>
+                      <br>
+                      <a class="btn btn-medium" href="#">Medium button as a-tag</a>
+                      <button class="btn btn-medium" type="button">Medium button as button-tag</button>
+                      <br>
+                      <br>
+                      <a class="btn btn-large" href="#">Large button as a-tag</a>
+                      <button class="btn btn-large" type="button">Large button as button-tag</button>
+                      <br>
+                      <br>
+                    </div>
                   </div>
                 </div>
               </div>
