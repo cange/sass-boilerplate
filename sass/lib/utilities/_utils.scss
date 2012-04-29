@@ -1,0 +1,65 @@
+/**
+ * These rules serve mainly as extensions (SASS context) sub definitions.
+ * They should be kept simple for optimal extensibility.
+ * In the best case you need never use this selectors in HTML.
+ */
+
+// Floatings
+// @abstract
+.snap-right {
+  float: right;
+}
+// @abstract
+.snap-left {
+  float: left;
+}
+
+// Toggling content
+// @abstract
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+// Visibility
+// @abstract
+.invisible {
+  visibility: hidden;
+}
+
+// Link behaviors
+// @abstract
+.link {
+  text-decoration: underline;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+.inverted-link {
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+.clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    zoom: 1;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// List helper
+// @abstract
+.unstyled-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}

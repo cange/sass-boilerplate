@@ -54,6 +54,120 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+/**
+ * These rules serve mainly as extensions (SASS context) sub definitions.
+ * They should be kept simple for optimal extensibility.
+ * In the best case you need never use this selectors in HTML.
+ */
+.snap-right {
+  float: right;
+}
+
+.snap-left {
+  float: left;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover, .link:focus {
+  text-decoration: none;
+}
+
+.inverted-link {
+  text-decoration: none;
+}
+.inverted-link:hover, .inverted-link:focus {
+  text-decoration: underline;
+}
+
+.clearfix, .row, .line {
+  zoom: 1;
+}
+.clearfix:before, .row:before, .line:before, .clearfix:after, .row:after, .line:after {
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.clearfix:after, .row:after, .line:after {
+  clear: both;
+}
+
+.unstyled-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+/**
+ * These rules serve mainly as extensions (SASS context) sub definitions.
+ * They should be kept simple for optimal extensibility.
+ * In the best case you need never use this selectors in HTML.
+ */
+.snap-right {
+  float: right;
+}
+
+.snap-left {
+  float: left;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover, .link:focus {
+  text-decoration: none;
+}
+
+.inverted-link {
+  text-decoration: none;
+}
+.inverted-link:hover, .inverted-link:focus {
+  text-decoration: underline;
+}
+
+.clearfix, .row, .line {
+  zoom: 1;
+}
+.clearfix:before, .row:before, .line:before, .clearfix:after, .row:after, .line:after {
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.clearfix:after, .row:after, .line:after {
+  clear: both;
+}
+
+.unstyled-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
 /*
  * Spacing classes
  * Should be used to modify the default spacing between objects (not between nodes of the same object)
@@ -96,18 +210,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .line > [class*='col-'] {
   margin-left: 0;
-}
-
-.row, .line {
-  zoom: 1;
-}
-.row:before, .row:after, .line:before, .line:after {
-  display: table;
-  content: "";
-  zoom: 1;
-}
-.row:after, .line:after {
-  clear: both;
 }
 
 [class*='col-'] {
