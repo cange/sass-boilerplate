@@ -1,0 +1,60 @@
+// @link https://gist.github.com/1622287
+// @module sprite grid helper
+
+// default route to the image directory
+$spriteGridBasePath: "/images/" !default;
+// default grid size
+$spriteGridSize: 16 !default;
+$spriteGridSizeY: 16 !default;
+$spriteGridName: "icons";
+
+// Update sprite size for both sprite size properties.
+// @param $size [integer] define the horizontal size of the viewport (default $spriteGridSize)
+// @param $sizeY [integer] define the vertical size of the viewport (default $spriteGridSizeY)
+@mixin spriteGridSize($size: $spriteGridSize, $sizeY: false) {
+  $spriteGridSize: $size;
+  @if $sizeY == false {
+    $spriteGridSizeY: $size;
+  }
+  @else {
+    $spriteGridSizeY: $sizeY;
+  }
+}
+// Define the basic box model with dimensions.
+// @see spriteGridPosition()
+// @param $typeName [string] means the primary filename e.g type name "icon" -> "icon-16.png"
+//
+// @example
+// $spriteGridSize: 16
+// .icon
+//   +spriteGrid(1, 3)
+// /* output
+// .icon {
+//    height: 16px;
+//    width: 16px;
+//    display: inline-block;
+//    background-image: url(/images/icons-16.png);
+//    background-repeat: no-repeat;
+//    background-position: -16px -48px;
+// }
+@mixin spriteGrid($x: 0, $y: 0, $size: false, $typeName: $spriteGridName, $sizeY: false) {
+  @include spriteGridSize($size, $sizeY);
+  background: {
+    image: url(#{$spriteGridBasePath}#{$typeName}-#{$size}.png);
+    repeat: no-repeat;
+  };
+  display: inline-block;
+  height: #{$sizeY}px;
+  overflow: hidden;
+  @include spriteGridPosition($x, $y, $size, $sizeY);
+  width: #{$size}px;
+}
+// Define with the help of height/width the correct position of the background image in the sprite grid.
+// Is possible to use it in the two dimensions x and y.
+//
+// @param $x [integer] X position of the background image (default 0)
+// @param $y [integer] Y position of the background image (default 0)
+// @see spriteGridSize()
+@mixin spriteGridPosition($x: 0, $y: 0, $size: $spriteGridSize, $sizeY: $spriteGridSizeY) {
+  background-position: #{$x * -$size}px #{$y * -$sizeY}px;
+}

@@ -1,0 +1,47 @@
+// based on the oocss by stubbornella (Nicole Sullivan)
+// @link https://github.com/stubbornella/oocss/blob/master/core/spacing/space.css
+/**
+ * Spacing classes
+ * Should be used to modify the default spacing between objects (not between nodes of the same object)
+ * Please use judiciously. You want to be using defaults most of the time, these are exceptions!
+ * <type><location><size>
+ *
+ *spacing helpers
+ *p,m = padding,margin
+ *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+ *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0)
+ */
+@mixin oocssSpacing($spaceM: 10px, $spaceL: 20px, $spaceS: 5px) {
+  .ptn, .pvn, .pan { padding-top:     0 !important; }
+  .pts, .pvs, .pas { padding-top:     $spaceS !important; }
+  .ptm, .pvm, .pam { padding-top:     $spaceM !important; }
+  .ptl, .pvl, .pal { padding-top:     $spaceL !important; }
+  .prn, .phn, .pan { padding-right:   0 !important; }
+  .prs, .phs, .pas { padding-right:   $spaceS !important; }
+  .prm, .phm, .pam { padding-right:   $spaceM !important; }
+  .prl, .phl, .pal { padding-right:   $spaceL !important; }
+  .pbn, .pvn, .pan { padding-bottom:  0 !important; }
+  .pbs, .pvs, .pas { padding-bottom:  $spaceS !important; }
+  .pbm, .pvm, .pam { padding-bottom:  $spaceM !important; }
+  .pbl, .pvl, .pal { padding-bottom:  $spaceL !important; }
+  .pln, .phn, .pan { padding-left:    0 !important; }
+  .pls, .phs, .pas { padding-left:    $spaceS !important; }
+  .plm, .phm, .pam { padding-left:    $spaceM !important; }
+  .pll, .phl, .pal { padding-left:    $spaceL !important; }
+  .mtn, .mvn, .man { margin-top:      0 !important; }
+  .mts, .mvs, .mas { margin-top:      $spaceS !important; }
+  .mtm, .mvm, .mam { margin-top:      $spaceM !important; }
+  .mtl, .mvl, .mal { margin-top:      $spaceL !important; }
+  .mrn, .mhn, .man { margin-right:    0 !important; }
+  .mrs, .mhs, .mas { margin-right:    $spaceS !important; }
+  .mrm, .mhm, .mam { margin-right:    $spaceM !important; }
+  .mrl, .mhl, .mal { margin-right:    $spaceL !important; }
+  .mbn, .mvn, .man { margin-bottom:   0 !important; }
+  .mbs, .mvs, .mas { margin-bottom:   $spaceS !important; }
+  .mbm, .mvm, .mam { margin-bottom:   $spaceM !important; }
+  .mbl, .mvl, .mal { margin-bottom:   $spaceL !important; }
+  .mln, .mhn, .man { margin-left:     0 !important; }
+  .mls, .mhs, .mas { margin-left:     $spaceS !important; }
+  .mlm, .mhm, .mam { margin-left:     $spaceM !important; }
+  .mll, .mhl, .mal { margin-left:     $spaceL !important; }
+}

@@ -1,0 +1,55 @@
+// based on the oocss by stubbornella (Nicole Sullivan)
+// @link https://github.com/stubbornella/oocss/blob/master/core/grid/grid.css
+// @source https://gist.github.com/1021575
+// @deprecated is recommented to use the  /lib/utilities/_grid.scss system
+// Definition
+@mixin oocssClearfix {
+  overflow: hidden;
+  *overflow: visible;
+  *zoom: 1;
+}
+
+@mixin oocssGridLast {
+  @include oocssClearfix;
+  float: none;
+  width: auto;
+  _position: relative;
+  _left: -3px;
+  _margin-right: -3px;
+}
+
+// @link https://gist.github.com/91663 by @chriseppstein
+@mixin oocssSize($n, $m) {
+  @if $n == $m {
+    float: none;
+  }
+  @else {
+    width: percentage($n / $m);
+  }
+}
+
+@mixin oocssGrid {
+  .line {
+    @include oocssClearfix;
+    // @note Find all direct child elements with the .size# class notation
+    > [class*=size] {
+      float: left;
+    }
+  }
+  .size1of1 {
+    @include oocssSize(1, 1);
+  }
+  @for $m from 1 through 5 {
+    @for $n from 1 to $m {
+      .size#{$n}of#{$m} {
+        @include oocssSize($n, $m);
+      }
+    }
+  }
+  .lastUnit {
+    @include oocssGridLast;
+  }
+  .unitRight {
+    float: right;
+  }
+}

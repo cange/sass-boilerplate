@@ -1,0 +1,10 @@
+// The hyphens CSS property tells the browser how to go about splitting words
+// to improve the layout of text when line-wrapping.
+// @see https://developer.mozilla.org/en/CSS/hyphens
+//
+// @param $type [ none | manual | auto ]
+@mixin hyphens($type: none) {
+  @include experimental(hyphens, $type,
+    -moz, -webkit, not -o, -ms, -khtml, official
+  );
+}

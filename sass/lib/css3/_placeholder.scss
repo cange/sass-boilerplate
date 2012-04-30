@@ -1,0 +1,13 @@
+// Define color of input placeholder text
+// @param $color [ HEX | RGB | RGBA | HSL | HSLA | color name]
+@mixin placeholder($color: #777) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &.placeholder {
+    color: $color;
+  }
+}

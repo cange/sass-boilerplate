@@ -1,0 +1,37 @@
+@import "../utilities/utils";
+// based on the oocss by stubbornella (Nicole Sullivan)
+// @link https://github.com/stubbornella/oocss/blob/master/core/media/media.css
+/**
+ * Use any sized image or flash for the right or left area. Any content in the
+ * body including nesting other media blocks.
+ * Example:
+  <div class="media">
+    <a href="http://twitter.com/stubbornella" class="img">
+      <img src="http://placehold.it/16" alt="1day">
+    </a>
+    <div class="bd">event date</div>
+  </div>
+  <div class="media">
+    <a href="http://twitter.com/stubbornella" class="img">
+      <img src="http://placehold.it/64x64" alt="img">
+    </a>
+    <a href="http://twitter.com/stubbornella" class="img-ext">X</a>
+    <div class="bd">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+ */
+.media {
+  @extend .clearfix;
+}
+.media .img {
+  @extend .snap-left;
+  /*margin-right: 10px;*/
+}
+.media .img img {
+  display: block;
+}
+.media .img-ext {
+  @extend .snap-right;
+  /*margin-left: 10px;*/
+}

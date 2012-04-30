@@ -17,7 +17,8 @@
 // or child selectors to target those elements.
 
 // Module example like this
-@import modules/buttons
+@import "modules/buttons";
 
-=modules
-  +buttonsModule
+@mixin modules {
+  @include buttonsModule;
+}

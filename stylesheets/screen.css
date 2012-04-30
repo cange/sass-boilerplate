@@ -59,12 +59,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * They should be kept simple for optimal extensibility.
  * In the best case you need never use this selectors in HTML.
  */
-.snap-right {
+.snap-right, .media .img-ext {
   float: right;
 }
 
-.snap-left {
+.snap-left, .media .img, [class*='col-'] {
   float: left;
+}
+
+.clearfix, .media, .row, .line {
+  *zoom: 1;
+}
+.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
+  content: "";
+  display: table;
+}
+.clearfix:after, .media:after, .row:after, .line:after {
+  clear: both;
 }
 
 .hide {
@@ -91,18 +102,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 .inverted-link:hover, .inverted-link:focus {
   text-decoration: underline;
-}
-
-.clearfix, .row, .line {
-  zoom: 1;
-}
-.clearfix:before, .row:before, .line:before, .clearfix:after, .row:after, .line:after {
-  content: "";
-  display: table;
-  zoom: 1;
-}
-.clearfix:after, .row:after, .line:after {
-  clear: both;
 }
 
 .unstyled-list {
@@ -116,12 +115,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * They should be kept simple for optimal extensibility.
  * In the best case you need never use this selectors in HTML.
  */
-.snap-right {
+.snap-right, .media .img-ext {
   float: right;
 }
 
-.snap-left {
+.snap-left, .media .img, [class*='col-'] {
   float: left;
+}
+
+.clearfix, .media, .row, .line {
+  *zoom: 1;
+}
+.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
+  content: "";
+  display: table;
+}
+.clearfix:after, .media:after, .row:after, .line:after {
+  clear: both;
 }
 
 .hide {
@@ -150,16 +160,60 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
 }
 
-.clearfix, .row, .line {
-  zoom: 1;
+.unstyled-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
-.clearfix:before, .row:before, .line:before, .clearfix:after, .row:after, .line:after {
+
+/**
+ * These rules serve mainly as extensions (SASS context) sub definitions.
+ * They should be kept simple for optimal extensibility.
+ * In the best case you need never use this selectors in HTML.
+ */
+.snap-right, .media .img-ext {
+  float: right;
+}
+
+.snap-left, .media .img, [class*='col-'] {
+  float: left;
+}
+
+.clearfix, .media, .row, .line {
+  *zoom: 1;
+}
+.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
   content: "";
   display: table;
-  zoom: 1;
 }
-.clearfix:after, .row:after, .line:after {
+.clearfix:after, .media:after, .row:after, .line:after {
   clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover, .link:focus {
+  text-decoration: none;
+}
+
+.inverted-link {
+  text-decoration: none;
+}
+.inverted-link:hover, .inverted-link:focus {
+  text-decoration: underline;
 }
 
 .unstyled-list {
@@ -168,16 +222,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 0;
 }
 
-/*
+/**
+ * Use any sized image or flash for the right or left area. Any content in the
+ * body including nesting other media blocks.
+ * Example:
+  <div class="media">
+    <a href="http://twitter.com/stubbornella" class="img">
+      <img src="http://placehold.it/16" alt="1day">
+    </a>
+    <div class="bd">event date</div>
+  </div>
+  <div class="media">
+    <a href="http://twitter.com/stubbornella" class="img">
+      <img src="http://placehold.it/64x64" alt="img">
+    </a>
+    <a href="http://twitter.com/stubbornella" class="img-ext">X</a>
+    <div class="bd">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+ */
+.media .img {
+  /*margin-right: 10px;*/
+}
+
+.media .img img {
+  display: block;
+}
+
+.media .img-ext {
+  /*margin-left: 10px;*/
+}
+
+/**
  * Spacing classes
  * Should be used to modify the default spacing between objects (not between nodes of the same object)
  * Please use judiciously. You want to be using defaults most of the time, these are exceptions!
- * <type><location><size> */
-/* ====== Default spacing ====== */
-/* spacing helpers
+ * <type><location><size>
+ *
+ *spacing helpers
  *p,m = padding,margin
  *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
- *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0) */
+ *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0)
+ */
 @-webkit-keyframes background-highlight {
   0%, 100% {
     background-position: 0 0;
@@ -222,10 +309,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 .row .cell {
   margin-left: 20px;
-}
-
-.snap-right {
-  float: right;
 }
 
 .col-1-1 {
@@ -274,21 +357,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 h1, .h1 {
   font-size: 22px;
+  font-weight: bold;
   margin: 0 0 0.67em;
 }
 
-h2, .h1 {
+h2, .h2 {
   font-size: 20px;
+  font-weight: bold;
   margin: 0 0 0.83em;
 }
 
 h3, .h3 {
   font-size: 16px;
+  font-weight: bold;
   margin: 0 0 1em;
 }
 
 h4, .h4 {
   font-size: 14px;
+  font-weight: bold;
   margin: 0 0 1.33em;
 }
 
@@ -303,7 +390,7 @@ h6, .h6 {
 }
 
 body, form {
-  font-family: Ubuntu, "Lucida Sans", "Lucida Grande", sans-serif;
+  font-family: Ubuntu, Lucida Sans, Lucida Grande, sans-serif;
   line-height: 1.25em;
   margin: 0;
   padding: 0;
@@ -312,7 +399,7 @@ body, form {
 a {
   color: blue;
 }
-a:hover {
+a:hover, a:focus {
   color: #4040ff;
 }
 
@@ -352,11 +439,10 @@ p {
   cursor: inherit;
   background-repeat: repeat-x;
   border: none;
-  -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
+  -o-border-radius: 5px;
   border-radius: 5px;
   background-color: #40acff;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #73c2ff), color-stop(100%, #40acff));
@@ -370,8 +456,8 @@ p {
   text-shadow: 1px 1px 0px #40acff;
   color: white;
   cursor: pointer;
+  font-family: Ubuntu, Lucida Sans, Lucida Grande, sans-serif;
   font-size: 12px;
-  font-family: Ubuntu, "Lucida Sans", "Lucida Grande", sans-serif;
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -382,10 +468,11 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  -webkit-transition: all, 0.25s;
   -moz-transition: all 0.25s;
-  -webkit-transition: all 0.25s;
+  -ms-transition: all 0.25s;
   -o-transition: all 0.25s;
-  transition: all 0.25s;
+  transition: all, 0.25s;
 }
 .btn:active, .btn:focus {
   outline: none;
@@ -397,30 +484,11 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF40ACFF', endColorstr='#FF40ACFF');
 }
 .btn:focus {
-  -moz-animation-name: background-highlight;
-  -webkit-animation-name: background-highlight;
-  -o-animation-name: background-highlight;
-  -ms-animation-name: background-highlight;
-  -khtml-animation-name: background-highlight;
-  animation-name: background-highlight;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -khtml-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -moz-animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
-  -o-animation-timing-function: ease-out;
-  -ms-animation-timing-function: ease-out;
-  -khtml-animation-timing-function: ease-out;
-  animation-timing-function: ease-out;
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -khtml-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation: background-highlight infinite ease-out 1s;
+  -moz-animation: background-highlight infinite ease-out 1s;
+  -ms-animation: background-highlight infinite ease-out 1s;
+  -o-animation: background-highlight infinite ease-out 1s;
+  animation: background-highlight infinite ease-out 1s;
 }
 .btn {
   *display: inline;
@@ -459,19 +527,18 @@ p {
 .debug.active {
   /* grids debug */
 }
-.debug.active [title=todo]:after {
+.debug.active [title=todo]::after {
   content: "*";
   color: red;
   position: absolute;
 }
 .debug.active .line {
   background-color: rgba(17, 0, 17, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
 }
-.debug.active .line:hover:before, .debug.active .line:focus:before {
+.debug.active .line:hover::before, .debug.active .line:focus::before {
   content: "line";
   position: absolute;
   color: white;
@@ -480,12 +547,11 @@ p {
 }
 .debug.active .row {
   background-color: rgba(17, 136, 17, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
 }
-.debug.active .row:hover:before, .debug.active .row:focus:before {
+.debug.active .row:hover::before, .debug.active .row:focus::before {
   content: "row";
   position: absolute;
   color: white;
@@ -494,12 +560,11 @@ p {
 }
 .debug.active .col-1-1 {
   background-color: rgba(0, 0, 255, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
 }
-.debug.active .col-1-1:hover:before, .debug.active .col-1-1:focus:before {
+.debug.active .col-1-1:hover::before, .debug.active .col-1-1:focus::before {
   content: "col-1-1";
   position: absolute;
   color: white;
@@ -508,12 +573,11 @@ p {
 }
 .debug.active .col-1-2 {
   background-color: rgba(0, 255, 255, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
 }
-.debug.active .col-1-2:hover:before, .debug.active .col-1-2:focus:before {
+.debug.active .col-1-2:hover::before, .debug.active .col-1-2:focus::before {
   content: "col-1-2";
   position: absolute;
   color: white;
@@ -522,12 +586,11 @@ p {
 }
 .debug.active .col-1-3 {
   background-color: rgba(255, 255, 0, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
 }
-.debug.active .col-1-3:hover:before, .debug.active .col-1-3:focus:before {
+.debug.active .col-1-3:hover::before, .debug.active .col-1-3:focus::before {
   content: "col-1-3";
   position: absolute;
   color: white;
@@ -536,12 +599,11 @@ p {
 }
 .debug.active .col-1-4 {
   background-color: rgba(255, 0, 0, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
 }
-.debug.active .col-1-4:hover:before, .debug.active .col-1-4:focus:before {
+.debug.active .col-1-4:hover::before, .debug.active .col-1-4:focus::before {
   content: "col-1-4";
   position: absolute;
   color: white;
@@ -550,12 +612,11 @@ p {
 }
 .debug.active .col-1-5 {
   background-color: rgba(255, 0, 255, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
 }
-.debug.active .col-1-5:hover:before, .debug.active .col-1-5:focus:before {
+.debug.active .col-1-5:hover::before, .debug.active .col-1-5:focus::before {
   content: "col-1-5";
   position: absolute;
   color: white;
@@ -564,12 +625,11 @@ p {
 }
 .debug.active .col-2-3 {
   background-color: rgba(0, 255, 0, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
 }
-.debug.active .col-2-3:hover:before, .debug.active .col-2-3:focus:before {
+.debug.active .col-2-3:hover::before, .debug.active .col-2-3:focus::before {
   content: "col-2-3";
   position: absolute;
   color: white;
@@ -578,12 +638,11 @@ p {
 }
 .debug.active .col-3-4 {
   background-color: rgba(102, 0, 0, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
 }
-.debug.active .col-3-4:hover:before, .debug.active .col-3-4:focus:before {
+.debug.active .col-3-4:hover::before, .debug.active .col-3-4:focus::before {
   content: "col-3-4";
   position: absolute;
   color: white;
@@ -592,12 +651,11 @@ p {
 }
 .debug.active .col-2-5 {
   background-color: rgba(102, 0, 102, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
 }
-.debug.active .col-2-5:hover:before, .debug.active .col-2-5:focus:before {
+.debug.active .col-2-5:hover::before, .debug.active .col-2-5:focus::before {
   content: "col-2-5";
   position: absolute;
   color: white;
@@ -606,12 +664,11 @@ p {
 }
 .debug.active .col-3-5 {
   background-color: rgba(102, 102, 0, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
 }
-.debug.active .col-3-5:hover:before, .debug.active .col-3-5:focus:before {
+.debug.active .col-3-5:hover::before, .debug.active .col-3-5:focus::before {
   content: "col-3-5";
   position: absolute;
   color: white;
@@ -620,12 +677,11 @@ p {
 }
 .debug.active .col-4-5 {
   background-color: rgba(0, 102, 102, 0.05);
-  -moz-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
-  -o-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
 }
-.debug.active .col-4-5:hover:before, .debug.active .col-4-5:focus:before {
+.debug.active .col-4-5:hover::before, .debug.active .col-4-5:focus::before {
   content: "col-4-5";
   position: absolute;
   color: white;
@@ -633,9 +689,8 @@ p {
   font-weight: bold;
 }
 .debug.active .cell {
-  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
-  -o-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
 }
 
@@ -654,16 +709,19 @@ p {
   width: 100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
   opacity: 0.1;
-  -moz-transition-property: all;
   -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
-  -moz-transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -moz-transition-delay: 0.5s;
   -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -ms-transition-delay: 0.5s;
   -o-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
@@ -673,8 +731,9 @@ p {
 #debug-panel:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
-  -moz-transition-delay: 0s;
   -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
   top: 0;
@@ -692,7 +751,7 @@ p {
 #debug-panel a:hover {
   color: black;
 }
-#debug-panel a:not(:first-child):before {
+#debug-panel a:not(:first-child)::before {
   content: "|";
   color: black;
   padding: 0 5px;

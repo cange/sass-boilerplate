@@ -1,0 +1,55 @@
+// This file contains all global value such as colors, space, fonts, font
+// sizes, etc.
+// This should be also include any specific Compass defaults defined here.
+
+// Some examples of these
+
+// Compass settings
+$default-border-radius: 4px;
+$default-transition-duration: 0.25s;
+
+// spaces
+$spaceS:  5px;
+$spaceM:  $spaceS * 2;
+$spaceL:  $spaceM * 2;
+$spaceXL: $spaceL * 2;
+
+// …
+$pageWidth: 960px;
+
+// icon sizes
+// unitless values is here necessary for calulation
+$iconSizeXS:    16;
+$iconSizeS:     24;
+$iconSizeM:     32;
+$iconSizeL:     48;
+$iconSizeXL:    64;
+$iconSizeXXL:   96;
+$iconSizeXXXL:  128;
+
+// font stacks
+$fontRegular: Ubuntu, Lucida Sans, Lucida Grande, sans-serif;
+$fontAlternative: DejaVu Serif, Georgia, New Century Schoolbook, Nimbus Roman No9 L, serif;
+
+// …
+
+// font sizes
+$fontSizeS:     10px;
+$fontSizeM:     12px;
+$fontSizeL:     14px;
+$fontSizeXL:    16px;
+$fontSizeXXL:   20px;
+$fontSizeXXXL:  22px;
+
+// …
+
+// colors
+$blueLightest:  #73c2ff;
+$blueLighter:   #40acff;
+$blueLight:     #0090ff;
+$blue:          blue;
+$blueDark:      #4040ff;
+$blueDarker:    #2f2fc0;
+$blueDarkest:   #0000a7;
+
+// …

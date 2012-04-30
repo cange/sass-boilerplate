@@ -1,0 +1,219 @@
+@import "compass";
+
+$docBlue: #195f91;
+$docBlueLight: #268bd2;
+$docOrangeLight: #fefbf3;
+$docOrange: #cb4b16;
+$docGrey: #93a1a1;
+$docPageWidth: 1020px;
+$basicSize: 14px;
+
+@mixin docs() {
+  body.doc {
+    background: { color: #d6d1cd; repeat: repeat; };
+    font-size: $basicSize;
+  }
+  .doc-topbar {
+    height: 40px;
+    left: 0;
+    overflow: visible;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+    .doc-brand {
+      color: white;
+      display: block;
+      float: left;
+      line-height: 1.4em;
+      margin-left: -20px;
+      padding: 8px 20px 12px;
+      text-decoration: none;
+    }
+    .doc-container {
+      width: $docPageWidth;
+      margin-top: 0;
+    }
+    a {
+      color: #bfbfbf;
+      @include text-shadow(0 -1px 0 rgba(black, .25));
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    .doc-topbar-inner {
+      background: { color: #222; repeat: repeat-x; };
+      @include background-image(linear-gradient(#333, #222));
+      @include box-shadow(0 1px 3px rgba(black, .25), 0 -1px 0 rgba(black, .1) inset);
+      .doc-nav {
+        display: block;
+        float: left;
+        left: 0;
+        margin: 0 10px 0 0;
+        position: relative;
+        > li {
+          display: block;
+          float: left;
+        }
+        a {
+          display: block;
+          float: none;
+          line-height: 19px;
+          padding: 10px 10px 11px;
+          text-decoration: none;
+        }
+        .active { background-color: rgba(black, 0.5); }
+      }
+    }
+  }
+  .doc-page {
+    padding: { bottom: 4em; top: 4em; };
+    width: $docPageWidth;
+    background-color: white;
+    @include box-shadow(0 1px 3px rgba(black, 0.3));
+    @include border-radius(0 0 5px 5px);
+    margin: auto;
+    margin-bottom: 6em;
+  }
+  .doc-container {
+    margin: auto;
+    width: 940px;
+    &::after { clear: both; }
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+    }
+  }
+  .doc-page-header {
+    background-color: #3d3c3f;
+    @include background-image(linear-gradient(#666, #3D3C3F));
+    color: #efefef;
+    font-size: 14px;
+    padding: 30px 10px 10px;
+    margin: { bottom: 10px; top: 20px; }
+    text-align: right;
+    @include text-shadow(1px 1px 0 rgba(#333, .5), -1px -1px 0 rgba(#666, .5));
+  }
+  .doc-debug {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .doc-example .doc-bd {
+    $_contra: rgba(#cecece, 0.3);
+    $_contraDark: #cccccc;
+    $transparent: rgba(black, 0);
+    background-color: #efefef;
+    @include background-image(
+      linear-gradient($_contraDark 1px, $transparent 1px),
+      linear-gradient(0 50%, $_contraDark 2px, $transparent 2px),
+      linear-gradient($_contra 1px, $transparent 1px),
+      linear-gradient(0 50%, $_contra 2px, $transparent 2px)
+    );
+    @include background-size(100px 100px, 100px 100px, 20px 20px, 20px 20px);
+    border: 1px solid rgba(black, 0.2);
+    @include border-radius(4px);
+    @include box-shadow(0 1px 2px rgba(#000, .1));
+    margin-bottom: 10px;
+    padding: 10px;
+    background-position: 10px 10px, 10px 0, 0 10px;
+    .doc {
+      &.line, &.row {
+        margin-bottom: 10px;
+        .doc.line, .doc.row {
+          margin: { bottom: -5px; top: 5px; };
+        }
+      }
+      &.line > *,
+      &.row .cell {
+        background-color: rgba($docBlueLight, 0.3);
+        @include  background-image(linear-gradient(rgba(white, .1), rgba(black, .1)));
+        @include  border-radius;
+        @include  box-shadow(0 0 0 1px white inset);
+        color: white;
+        font-size: 92%;
+        padding: 5px 0;
+        @include  text-shadow(1px 1px 0 darken($docBlueLight, 8));
+        text-align: center;
+        &:hover, &:focus {
+          background-color: rgba($docBlueLight, 0.5);
+        }
+      }
+    }
+  }
+  .doc-example { margin-bottom: 10px; }
+  .doc-pill {
+    @include unstyled-link;
+    @include border-radius(3px);
+    background-color: $docGrey;
+    color: white;
+    font: { size: 10px; weight: bold; }
+    text: { decoration: none; transform: uppercase; }
+    padding: 2px 3px;
+    white-space: nowrap;
+    &:hover, &:focus { color: darken(white, 8); }
+  }
+  a.doc {
+    @include unstyled-link;
+    @include inline-block;
+    cursor: pointer;
+    background-color: lighten($docBlueLight, 24);
+    color: $docOrangeLight;
+    border: 1px solid $docBlueLight;
+    padding: 2px 5px;
+    margin-bottom: 10px;
+    text: { align: center; transform: uppercase; };
+    font-size: 9px;
+    @include border-radius(50px);
+    @include transition;
+    min-width: 65px;
+    &:hover {
+      color: white;
+      background-color: lighten($docBlueLight, 8);
+    }
+  }
+  section.doc {
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+@mixin _docPrettyprint {
+  pre.prettyprint {
+    background: $docOrangeLight;
+    padding: 9px;
+    border: 1px solid rgba(black, 0.2);
+    margin: { bottom: 10px; top: 10px; };
+    @include  box-shadow(0 1px 2px rgba(black, 0.1));
+    .pun, .opn, .clo, .pln, .com { color: $docGrey; }
+    .fun { color: #dc322f; }
+    .str, .atv { color: $docBlueLight; }
+    .lit, .kwd, .tag { color: $docBlue; }
+    .typ, .atn, .dec, .var { color: $docOrange; }
+  }
+  // Specify class=linenums on a pre to get line numbering
+  ol.linenums {
+    margin: 0 0 0 40px;
+    li {
+      color: rgba(0, 0, 0, 0.15);
+      line-height: 20px;
+    }
+  }
+  // IE indents via margin-left
+  // Alternate shading for lines
+  // li
+  // &.L1, &.L3, &.L5, &.L7, &.L9
+  pre,
+  code {
+    background-color: $docOrangeLight;
+    @include border-radius(2px);
+    color: $docOrange;
+    font-family: menlo, monaco, andale mono, monospace, serif, courier new, fixed !important;
+  }
+  pre { @include border-radius(4px); }
+}
+
+@include docs;
+@include _docPrettyprint;

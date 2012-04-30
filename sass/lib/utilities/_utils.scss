@@ -13,6 +13,19 @@
 .snap-left {
   float: left;
 }
+// For clearing floats like a boss h5bp.com/q
+// @abstract
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
 
 // Toggling content
 // @abstract
@@ -43,19 +56,6 @@
     text-decoration: underline;
   }
 }
-.clearfix {
-  zoom: 1;
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-    zoom: 1;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
 // List helper
 // @abstract
 .unstyled-list {

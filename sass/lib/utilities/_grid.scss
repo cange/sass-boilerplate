@@ -1,0 +1,59 @@
+@import "utils";
+
+// This fluid grid system based of the idea of the great OOCSS grid system.
+// The system support cutter spaces. For these you have to use the ".cell"
+// selector as a sub child of ".row".
+// Example:
+// .row
+//   .col-1-2
+//     .cell
+//   .col-1-4
+//     .cell
+//   .col-1-4
+//     .cell
+
+$gridGutterWidth: 20px !default;
+$gridColumnName: "col" !default;
+
+// @link https://gist.github.com/91663 by @chriseppstein
+// @param $n integer Number of current choise
+// @param $m integer Number of maximum columns
+@mixin percentageColumn($n, $m) {
+  @if $n == $m {
+    width: 100%;
+  }
+  @else {
+    width: percentage($n / $m);
+  }
+}
+// Define the whole grid system environment.
+// @param [string] Name of the selector classes (default $gridColumnName)
+@mixin gridBuilder($name: $gridColumnName) {
+  .line > [class*='#{$name}-'] {
+    margin-left: 0;
+  }
+  .row, .line {
+    @extend .clearfix;
+  }
+  [class*='#{$name}-'] {
+    @extend .snap-left;
+    display: inline;
+    float: left;
+  }
+  .row {
+    margin-left: -$gridGutterWidth;
+    .cell {
+      margin-left: $gridGutterWidth;
+    }
+  }
+  .#{$name}-1-1 {
+    @include percentageColumn(1, 1);
+  }
+  @for $m from 1 through 5 {
+    @for $n from 1 to $m {
+      .#{$name}-#{$n}-#{$m} {
+        @include percentageColumn($n, $m);
+      }
+    }
+  }
+}

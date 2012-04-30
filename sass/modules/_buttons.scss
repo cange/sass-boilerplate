@@ -1,0 +1,64 @@
+// basic button definitions
+@mixin buttonsModule {
+  .btn {
+    @include unstyled-link;
+    background-repeat: repeat-x;
+    border: none;
+    @include border-radius($spaceS);
+    @include _btnColor($blueLightest, $blueLighter);
+    color: white;
+    cursor: pointer;
+    font: { family: $fontRegular; size: $fontSizeM; };
+    @include inline-block;
+    line-height: 2em;
+    padding: 0 $spaceM;
+    text: { decoration: none; transform: uppercase; };
+    white-space: nowrap;
+    @include transition;
+    &::-moz-focus-inner { border: none; }
+    &:hover, &:focus { text-decoration: none; }
+  }
+  // @submodule
+  .btn-small { line-height: 1.6em; }
+  // @submodule
+  .btn-medium { line-height: 2.6em; }
+  // @submodule
+  .btn-large {
+    font-size: $fontSizeL;
+    line-height: 3.2em;
+    padding: { left: $spaceL; right: $spaceL; };
+  }
+  // @submodule
+  .disabled, [disabled] { @include opacity(0.5); }
+  // @submodule
+  .btn-fixed { min-width: 140px; }
+}
+
+@mixin _btnColor($color, $contra: false) {
+  $_primary: $color;
+  $_secondary: $contra;
+  @if $contra == false {
+    $_secondary: darken($color, 8);
+  }
+  background-color: $_secondary;
+  @include background-image(linear-gradient($_primary, $_secondary));
+  @include filter-gradient($_primary, $_secondary);
+  @include text-shadow(1px 1px 0px $_secondary);
+  &:hover, &:focus {
+    background-position: 0 -18px;
+    color: white;
+    @include filter-gradient($_secondary, $_secondary);
+  }
+  &:focus {
+    @include experimental(animation, background-highlight infinite ease-out 1s);
+  }
+}
+
+@mixin _btnHighlightAnimation {
+  0%, 100% { background-position: 0 0; }
+  40% { background-position: 0 -18px; }
+}
+
+@-webkit-keyframes background-highlight { @include _btnHighlightAnimation; }
+@-moz-keyframes background-highlight {    @include _btnHighlightAnimation; }
+@keyframes background-highlight {         @include _btnHighlightAnimation; }

@@ -1,0 +1,13 @@
+// The CSS property pointer-events allows authors to control under what
+// circumstances (if any) a particular graphic element can become the target of
+// mouse events.
+// @see https://developer.mozilla.org/en/CSS/pointer-events
+//
+// @param $type [ auto | none | visiblePainted | visibleFill | visibleStroke |
+// visible | painted | fill | stroke | all | inherit ]
+@mixin pointer-events($type: none) {
+  $type: unquote($type);
+  @include experimental(pointer-events, $type,
+    -moz, -webkit, not -o, not -ms, -khtml, official
+  );
+}
