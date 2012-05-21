@@ -1,0 +1,10 @@
+@mixin navigationsModule() {
+
+  .nav {
+    @extend .unstyled-list;
+    li {
+      @extend .snap-left;
+    }
+  }
+
+}

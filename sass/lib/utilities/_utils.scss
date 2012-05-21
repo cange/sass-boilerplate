@@ -6,41 +6,35 @@
 
 // Floatings
 // @abstract
-.snap-right {
-  float: right;
-}
+.snap-right { float: right; }
 // @abstract
-.snap-left {
-  float: left;
-}
+.snap-left { float: left; }
 // For clearing floats like a boss h5bp.com/q
 // @abstract
 .clearfix {
   *zoom: 1;
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     display: table;
   }
-  &:after {
+  &::after {
     clear: both;
   }
 }
+// text-aligns
+.ltr { text-align: left; }
+.rtl { text-align: right; }
+.cntr { text-align: center; }
 
 // Toggling content
 // @abstract
-.hide {
-  display: none;
-}
-.show {
-  display: block;
-}
+.hide { display: none; }
+.show { display: block; }
 
 // Visibility
 // @abstract
-.invisible {
-  visibility: hidden;
-}
+.invisible { visibility: hidden; }
 
 // Link behaviors
 // @abstract

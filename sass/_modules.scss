@@ -18,7 +18,9 @@
 
 // Module example like this
 @import "modules/buttons";
+@import "modules/navigation";
 
 @mixin modules {
   @include buttonsModule;
+  @include navigationsModule;
 }
