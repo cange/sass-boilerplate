@@ -12,7 +12,10 @@ $spriteGridName: "icons";
 // @param $size [integer] define the horizontal size of the viewport (default $spriteGridSize)
 // @param $sizeY [integer] define the vertical size of the viewport (default $spriteGridSizeY)
 @mixin spriteGridSize($size: $spriteGridSize, $sizeY: false) {
-  $spriteGridSize: $size;
+  @if $size != false {
+    $spriteGridSize: $size;
+  }
+  $size: $spriteGridSize;
   @if $sizeY == false {
     $spriteGridSizeY: $size;
   }
@@ -40,14 +43,14 @@ $spriteGridName: "icons";
 @mixin spriteGrid($x: 0, $y: 0, $size: false, $typeName: $spriteGridName, $sizeY: false) {
   @include spriteGridSize($size, $sizeY);
   background: {
-    image: url(#{$spriteGridBasePath}#{$typeName}-#{$size}.png);
+    image: url(#{$spriteGridBasePath}#{$typeName}-#{$spriteGridSize}.png);
     repeat: no-repeat;
   };
   display: inline-block;
-  height: #{$sizeY}px;
+  height: #{$spriteGridSizeY}px;
   overflow: hidden;
-  @include spriteGridPosition($x, $y, $size, $sizeY);
-  width: #{$size}px;
+  @include spriteGridPosition($x, $y, $spriteGridSize, $spriteGridSizeY);
+  width: #{$spriteGridSize}px;
 }
 // Define with the help of height/width the correct position of the background image in the sprite grid.
 // Is possible to use it in the two dimensions x and y.
@@ -56,5 +59,14 @@ $spriteGridName: "icons";
 // @param $y [integer] Y position of the background image (default 0)
 // @see spriteGridSize()
 @mixin spriteGridPosition($x: 0, $y: 0, $size: $spriteGridSize, $sizeY: $spriteGridSizeY) {
-  background-position: #{$x * -$size}px #{$y * -$sizeY}px;
+  @if $x == 0 and $y == 0 {
+    background-position: 0px 0px;
+  } @else {
+    background-position: #{($x * -$size)}px #{($y * -$sizeY)}px;
+  }
+}
+// @param $imageName [string] X position of the background image (default 0)
+// @see spriteGridSize()
+@mixin singleImage($imageName, $size: false, $sizeY: false) {
+  @include spriteGrid(0, 0, $size, $imageName, $sizeY);
 }
