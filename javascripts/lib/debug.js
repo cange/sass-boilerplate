@@ -41,20 +41,34 @@ $(function () {
     }
     return $('<ul class="debug-colors">' + colorHTML + '</ul>');
   }
+  // save current status of toggle state into the localStorage object
+  function toggleHandler(event, options) {
+    event.preventDefault();
+    if (options.key) {
+      $html.toggleClass('debug-' + options.key);
+      if (supportLocalStorage) {
+        var currValue = localStorage.getItem(namespace) ? JSON.parse(localStorage.getItem(namespace)) : {},
+          value = {}
+        ;
+        value[options.key] = $html.hasClass('debug-' + options.key);
+        localStorage.setItem(namespace, JSON.stringify($.extend(currValue, value)));
+      }
+    }
+  }
 
-  // TODO remove this when the design part is done
   // Creates a mouse sensitive debug panel on the top
   if ($('.debug')[0]) {
     var $debugPanel = $(''+
       '<div id="debug-panel">'+
         '<div class="inner">'+
           '<span>Debug panel</span>'+
-          '<a class="debug-toggle"href="#toggle">toggle</a>'+
+          '<a class="debug-toggle" href="#toggle">toggle</a>'+
+          '<a class="debug-toggle-grid" href="#toggle">toggle Grid</a>'+
           '<a href="static/styleguide">Styleguide</a>'+
         '</div>'+
       '</div>').prependTo('body');
 
-    var key = 'dev.xing.com.debug',
+    var key = 'dev.domain.tld.debug',
       supportLocalStorage = !!window['localStorage'],
       $html = $('html')
     ;
@@ -69,5 +83,10 @@ $(function () {
       }
     });
     $debugPanel.find('.inner').append(buildColorSquares());
+    
+    $debugPanel.find('.debug-toggle-grid').click(function (event) {
+      toggleHandler(event, {key: 'grid'});
+    });
+    
   }
 });
