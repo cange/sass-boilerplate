@@ -63,19 +63,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: right;
 }
 
-.snap-left, .media .img, [class*='col-'] {
+.snap-left, .media .img, .nav li {
   float: left;
 }
 
-.clearfix, .media, .row, .line {
+.clearfix, .media, .row,
+.line {
   *zoom: 1;
 }
-.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::before, .media::before, .row::before,
+.line::before, .clearfix::after, .media::after, .row::after,
+.line::after {
   content: "";
   display: table;
 }
-.clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::after, .media::after, .row::after,
+.line::after {
   clear: both;
+}
+
+.ltr {
+  text-align: left;
+}
+
+.rtl {
+  text-align: right;
+}
+
+.cntr {
+  text-align: center;
 }
 
 .hide {
@@ -104,7 +120,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
 }
 
-.unstyled-list {
+.unstyled-list, .nav {
   margin: 0;
   list-style: none;
   padding: 0;
@@ -119,19 +135,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: right;
 }
 
-.snap-left, .media .img, [class*='col-'] {
+.snap-left, .media .img, .nav li {
   float: left;
 }
 
-.clearfix, .media, .row, .line {
+.clearfix, .media, .row,
+.line {
   *zoom: 1;
 }
-.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::before, .media::before, .row::before,
+.line::before, .clearfix::after, .media::after, .row::after,
+.line::after {
   content: "";
   display: table;
 }
-.clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::after, .media::after, .row::after,
+.line::after {
   clear: both;
+}
+
+.ltr {
+  text-align: left;
+}
+
+.rtl {
+  text-align: right;
+}
+
+.cntr {
+  text-align: center;
 }
 
 .hide {
@@ -160,7 +192,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
 }
 
-.unstyled-list {
+.unstyled-list, .nav {
   margin: 0;
   list-style: none;
   padding: 0;
@@ -175,19 +207,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: right;
 }
 
-.snap-left, .media .img, [class*='col-'] {
+.snap-left, .media .img, .nav li {
   float: left;
 }
 
-.clearfix, .media, .row, .line {
+.clearfix, .media, .row,
+.line {
   *zoom: 1;
 }
-.clearfix:before, .media:before, .row:before, .line:before, .clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::before, .media::before, .row::before,
+.line::before, .clearfix::after, .media::after, .row::after,
+.line::after {
   content: "";
   display: table;
 }
-.clearfix:after, .media:after, .row:after, .line:after {
+.clearfix::after, .media::after, .row::after,
+.line::after {
   clear: both;
+}
+
+.ltr {
+  text-align: left;
+}
+
+.rtl {
+  text-align: right;
+}
+
+.cntr {
+  text-align: center;
 }
 
 .hide {
@@ -216,7 +264,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
 }
 
-.unstyled-list {
+.unstyled-list, .nav {
   margin: 0;
   list-style: none;
   padding: 0;
@@ -295,20 +343,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   }
 }
 
-.line > [class*='col-'] {
-  margin-left: 0;
-}
-
-[class*='col-'] {
+.col {
   display: inline;
   float: left;
 }
 
 .row {
   margin-left: -20px;
-}
-.row .cell {
-  margin-left: 20px;
 }
 
 .col-1-1 {
@@ -331,10 +372,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 25%;
 }
 
-.col-2-4 {
-  width: 50%;
-}
-
 .col-3-4 {
   width: 75%;
 }
@@ -353,6 +390,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .col-4-5 {
   width: 80%;
+}
+
+.no-boxsizing .row .cell {
+  margin-left: 20px;
+}
+
+.boxsizing .row > .col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px;
 }
 
 h1, .h1 {
@@ -524,206 +572,197 @@ p {
   min-width: 140px;
 }
 
-.debug.active {
+.debug-boxes {
   /* grids debug */
 }
-.debug.active [title=todo]::after {
-  content: "*";
-  color: red;
-  position: absolute;
-}
-.debug.active .line {
+.debug-boxes .line {
   background-color: rgba(17, 0, 17, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(17, 0, 17, 0.2) inset;
 }
-.debug.active .line:hover::before, .debug.active .line:focus::before {
-  content: "line";
-  position: absolute;
-  color: white;
+.debug-boxes .line:hover::before, .debug-boxes .line:focus::before {
   text-shadow: 0 0 1px black;
+  content: "line";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .row {
+.debug-boxes .row {
   background-color: rgba(17, 136, 17, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(17, 136, 17, 0.2) inset;
 }
-.debug.active .row:hover::before, .debug.active .row:focus::before {
-  content: "row";
-  position: absolute;
-  color: white;
+.debug-boxes .row:hover::before, .debug-boxes .row:focus::before {
   text-shadow: 0 0 1px black;
+  content: "row";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-1-1 {
+.debug-boxes .col-1-1 {
   background-color: rgba(0, 0, 255, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.2) inset;
 }
-.debug.active .col-1-1:hover::before, .debug.active .col-1-1:focus::before {
-  content: "col-1-1";
-  position: absolute;
-  color: white;
+.debug-boxes .col-1-1:hover::before, .debug-boxes .col-1-1:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-1-1";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-1-2 {
+.debug-boxes .col-1-2 {
   background-color: rgba(0, 255, 255, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
 }
-.debug.active .col-1-2:hover::before, .debug.active .col-1-2:focus::before {
-  content: "col-1-2";
-  position: absolute;
-  color: white;
+.debug-boxes .col-1-2:hover::before, .debug-boxes .col-1-2:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-1-2";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-1-3 {
+.debug-boxes .col-1-3 {
   background-color: rgba(255, 255, 0, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.2) inset;
 }
-.debug.active .col-1-3:hover::before, .debug.active .col-1-3:focus::before {
-  content: "col-1-3";
-  position: absolute;
-  color: white;
+.debug-boxes .col-1-3:hover::before, .debug-boxes .col-1-3:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-1-3";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-1-4 {
+.debug-boxes .col-1-4 {
   background-color: rgba(255, 0, 0, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.2) inset;
 }
-.debug.active .col-1-4:hover::before, .debug.active .col-1-4:focus::before {
-  content: "col-1-4";
-  position: absolute;
-  color: white;
+.debug-boxes .col-1-4:hover::before, .debug-boxes .col-1-4:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-1-4";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-1-5 {
+.debug-boxes .col-1-5 {
   background-color: rgba(255, 0, 255, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.2) inset;
 }
-.debug.active .col-1-5:hover::before, .debug.active .col-1-5:focus::before {
-  content: "col-1-5";
-  position: absolute;
-  color: white;
+.debug-boxes .col-1-5:hover::before, .debug-boxes .col-1-5:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-1-5";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-2-3 {
+.debug-boxes .col-2-3 {
   background-color: rgba(0, 255, 0, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.2) inset;
 }
-.debug.active .col-2-3:hover::before, .debug.active .col-2-3:focus::before {
-  content: "col-2-3";
-  position: absolute;
-  color: white;
+.debug-boxes .col-2-3:hover::before, .debug-boxes .col-2-3:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-2-3";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-3-4 {
+.debug-boxes .col-3-4 {
   background-color: rgba(102, 0, 0, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 0, 0, 0.2) inset;
 }
-.debug.active .col-3-4:hover::before, .debug.active .col-3-4:focus::before {
-  content: "col-3-4";
-  position: absolute;
-  color: white;
+.debug-boxes .col-3-4:hover::before, .debug-boxes .col-3-4:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-3-4";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-2-5 {
+.debug-boxes .col-2-5 {
   background-color: rgba(102, 0, 102, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 0, 102, 0.2) inset;
 }
-.debug.active .col-2-5:hover::before, .debug.active .col-2-5:focus::before {
-  content: "col-2-5";
-  position: absolute;
-  color: white;
+.debug-boxes .col-2-5:hover::before, .debug-boxes .col-2-5:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-2-5";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-3-5 {
+.debug-boxes .col-3-5 {
   background-color: rgba(102, 102, 0, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(102, 102, 0, 0.2) inset;
 }
-.debug.active .col-3-5:hover::before, .debug.active .col-3-5:focus::before {
-  content: "col-3-5";
-  position: absolute;
-  color: white;
+.debug-boxes .col-3-5:hover::before, .debug-boxes .col-3-5:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-3-5";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .col-4-5 {
+.debug-boxes .col-4-5 {
   background-color: rgba(0, 102, 102, 0.05);
   -webkit-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 102, 102, 0.2) inset;
 }
-.debug.active .col-4-5:hover::before, .debug.active .col-4-5:focus::before {
-  content: "col-4-5";
-  position: absolute;
-  color: white;
+.debug-boxes .col-4-5:hover::before, .debug-boxes .col-4-5:focus::before {
   text-shadow: 0 0 1px black;
+  content: "col-4-5";
+  color: white;
   font-weight: bold;
+  position: absolute;
 }
-.debug.active .cell {
+.debug-boxes .cell {
   -webkit-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
   -moz-box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
 }
 
+.debug.active [title=todo]::after {
+  content: "*";
+  color: red;
+  position: absolute;
+}
+
 #debug-panel {
-  border-bottom: 1px solid #999999;
-  background-color: #cccccc;
-  background-color: rgba(204, 204, 204, 0.8);
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  -webkit-transition: 0.2s 0.5s;
+  -moz-transition: 0.2s 0.5s;
+  -ms-transition: 0.2s 0.5s;
+  -o-transition: 0.2s 0.5s;
+  transition: 0.2s 0.5s;
+  border-bottom: 1px solid #999999;
+  background-color: #cccccc;
+  background-color: rgba(204, 204, 204, 0.8);
   position: fixed;
   top: -20px;
   width: 100%;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
-  opacity: 0.1;
-  -webkit-transition-property: all;
-  -moz-transition-property: all;
-  -ms-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-delay: 0.5s;
-  -moz-transition-delay: 0.5s;
-  -ms-transition-delay: 0.5s;
-  -o-transition-delay: 0.5s;
-  transition-delay: 0.5s;
 }
 #debug-panel .inner {
   padding: 5px;
@@ -767,8 +806,8 @@ p {
 
 .debug-color {
   border: 1px solid black;
-  height: 10px;
-  width: 10px;
   display: inline-block;
+  height: 10px;
   margin-right: 5px;
+  width: 10px;
 }

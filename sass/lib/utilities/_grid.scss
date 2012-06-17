@@ -18,41 +18,47 @@ $gridColumnName: "col" !default;
 // @link https://gist.github.com/91663 by @chriseppstein
 // @param $n integer Number of current choise
 // @param $m integer Number of maximum columns
-@mixin percentageColumn($n, $m) {
+@function percentageColumnWidth($n, $m) {
   @if $n == $m {
-    width: 100%;
+    @return 100%;
   }
   @else {
-    width: percentage($n / $m);
+    @return percentage($n / $m);
   }
 }
 // Define the whole grid system environment.
 // @param [string] Name of the selector classes (default $gridColumnName)
 @mixin gridBuilder($name: $gridColumnName) {
-  .line > [class*='#{$name}-'] {
-    margin-left: 0;
-  }
-  .row, .line {
+  .row,
+  .line {
     @extend .clearfix;
   }
-  [class*='#{$name}-'] {
-    @extend .snap-left;
+  .#{$name} {
     display: inline;
+    float: left;
   }
-  .row {
-    margin-left: -$gridGutterWidth;
-    .cell {
-      margin-left: $gridGutterWidth;
-    }
-  }
-  .#{$name}-1-1 {
-    @include percentageColumn(1, 1);
-  }
+  .row { margin-left: -$gridGutterWidth; }
+  .#{$name}-1-1 { width: percentageColumnWidth(1, 1); }
+  $double: false;
   @for $m from 1 through 5 {
     @for $n from 1 to $m {
-      .#{$name}-#{$n}-#{$m} {
-        @include percentageColumn($n, $m);
+      $width: percentageColumnWidth($n, $m);
+
+      @if $width != $double {
+        .#{$name}-#{$n}-#{$m} {
+          width: $width;
+        }
+      /* @debug '-n #{$n} -m #{$m} -w #{$width} -d #{$double}'; */
+      }
+      @if $width == 50% {
+        $double: 50%;
       }
     }
+  }
+  // @section boxsizing solution
+  .no-boxsizing .row .cell { margin-left: $gridGutterWidth; }
+  .boxsizing .row > .col {
+    @include box-sizing(border-box);
+    padding-left: $gridGutterWidth;
   }
 }

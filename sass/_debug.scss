@@ -4,51 +4,59 @@
   @if $name != false {
     &:hover, &:focus {
       &::before {
-        content: $name;
-        position: absolute;
-        color: white;
         @include text-shadow(0 0 1px black);
+        content: $name;
+        color: white;
         font-weight: bold;
+        position: absolute;
       }
     }
   }
 }
 
 @mixin debug {
+  .debug-boxes {
+    /* grids debug */
+    .line {     @include _debugBox(#110011, "line"); }
+    .row {      @include _debugBox(#118811, "row"); }
+    .col-1-1 {  @include _debugBox(blue,    "col-1-1"); }
+    .col-1-2 {  @include _debugBox(aqua,    "col-1-2"); }
+    .col-1-3 {  @include _debugBox(yellow,  "col-1-3"); }
+    .col-1-4 {  @include _debugBox(red,     "col-1-4"); }
+    .col-1-5 {  @include _debugBox(fuchsia, "col-1-5"); }
+    .col-2-3 {  @include _debugBox(lime,    "col-2-3"); }
+    .col-3-4 {  @include _debugBox(#660000, "col-3-4"); }
+    .col-2-5 {  @include _debugBox(#660066, "col-2-5"); }
+    .col-3-5 {  @include _debugBox(#666600, "col-3-5"); }
+    .col-4-5 {  @include _debugBox(#006666, "col-4-5"); }
+    .cell {     @include box-shadow(0 0 0 1px rgba(red, 0.6) inset); }
+  }
+  // .debug-grid {
+  //   .doc-bd,
+  //   .page-body {
+  //     @include background-image(linear-gradient(left center, rgba(0,0,0, .2) 20px, rgba(0,0,0, .6) 20px, rgba(0,0,0, .6) 80px));
+  //     background-position: -10px 0;
+  //     background-size: 80px auto;
+  //   }
+  // }
   .debug.active {
     [title=todo]::after {
       content: "*";
       color: red;
       position: absolute;
     }
-    /* grids debug */
-    .line {     @include _debugBox(#110011, "line"); }
-    .row {      @include _debugBox(#118811, "row"); }
-    .col-1-1 {  @include _debugBox(blue, "col-1-1"); }
-    .col-1-2 {  @include _debugBox(aqua, "col-1-2"); }
-    .col-1-3 {  @include _debugBox(yellow, "col-1-3"); }
-    .col-1-4 {  @include _debugBox(red, "col-1-4"); }
-    .col-1-5 {  @include _debugBox(fuchsia, "col-1-5"); }
-    .col-2-3 {  @include _debugBox(lime, "col-2-3"); }
-    .col-3-4 {  @include _debugBox(#660000, "col-3-4"); }
-    .col-2-5 {  @include _debugBox(#660066, "col-2-5"); }
-    .col-3-5 {  @include _debugBox(#666600, "col-3-5"); }
-    .col-4-5 {  @include _debugBox(#006666, "col-4-5"); }
-    .cell {     @include box-shadow(0 0 0 1px rgba(red, 0.6) inset); }
-    }
+  }
   // @module
   #debug-panel {
+    @include background-image(linear-gradient(rgba(black, 0) 80%, rgba(black, 0.1)));
+    @include opacity(0.1);
+    @include transition(0.2s 0.5s);
     border-bottom: 1px solid #999999;
     background-color: #cccccc;
     background-color: rgba(#cccccc, 0.8);
-    @include background-image(linear-gradient(rgba(black, 0) 80%, rgba(black, 0.1)));
     position: fixed;
     top: -20px;
     width: 100%;
-    @include opacity(0.1);
-    @include transition-property(all);
-    @include transition-duration(0.2s);
-    @include transition-delay(0.5s);
     .inner { padding: 5px; }
     &:hover {
       @include opacity(1);
@@ -76,9 +84,9 @@
   }
   .debug-color {
     border: 1px solid black;
-    height: 10px;
-    width: 10px;
     display: inline-block;
+    height: 10px;
     margin-right: 5px;
+    width: 10px;
   }
 }

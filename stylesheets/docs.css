@@ -153,7 +153,6 @@ body.doc {
   margin-top: 5px;
 }
 .doc-example .doc-bd .doc.line > *, .doc-example .doc-bd .doc.row .cell {
-  background-color: rgba(38, 139, 210, 0.3);
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
@@ -168,11 +167,10 @@ body.doc {
   -webkit-box-shadow: 0 0 0 1px white inset;
   -moz-box-shadow: 0 0 0 1px white inset;
   box-shadow: 0 0 0 1px white inset;
+  text-shadow: 1px 1px 0 #2074af;
+  background-color: rgba(38, 139, 210, 0.3);
   color: white;
   font-size: 92%;
-  padding: 5px 0;
-  text-shadow: 1px 1px 0 #2074af;
-  text-align: center;
 }
 .doc-example .doc-bd .doc.line > *:hover, .doc-example .doc-bd .doc.line > *:focus, .doc-example .doc-bd .doc.row .cell:hover, .doc-example .doc-bd .doc.row .cell:focus {
   background-color: rgba(38, 139, 210, 0.5);

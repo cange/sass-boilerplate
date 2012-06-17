@@ -5,6 +5,7 @@
     <title>Styleguide</title>
     <link href="../stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="../stylesheets/docs.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/lib/modernizr-2.5.3.min.js"></script>
   </head>
   <body class="doc">
     <div data-scrollspy="scrollspy" class="doc-topbar">
@@ -27,7 +28,7 @@
           <h2 class="doc">Headlines</h2>
           <div class="doc-bd">
             <div class="row">
-              <div class="col-1-4">
+              <div class="col col-1-4">
                 <div class="cell">
                   Pragmatic headlines or <em>double-stranded heading
                   hierarchy</em>. This is the practice of defining a class every
@@ -35,7 +36,7 @@
                   <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/">more</a>
                 </div>
               </div>
-              <div class="col-3-4">
+              <div class="col col-3-4">
                 <div class="cell">
                   <h3 class="doc">Live-Example</h3>
                   <div class="doc-example">
@@ -58,7 +59,7 @@
           <h2 class="doc">Buttons</h2>
           <div class="doc-bd">
             <div class="row">
-              <div class="col-1-4">
+              <div class="col col-1-4">
                 <div class="cell">
                   Specific button styles use the base class
                   <code>.btn</code>. For further base defintions
@@ -67,7 +68,7 @@
                   <code>.disabled|[disabled="disabled"]</code>.
                 </div>
               </div>
-              <div class="col-3-4">
+              <div class="col col-3-4">
                 <div class="cell">
                   <h3 class="doc">Live-Example</h3>
                   <div class="doc-example">
@@ -101,43 +102,43 @@
             <h2>Grid</h2>
             <h3>
               Live-Example –
-              <code>.line &gt; .col-#</code>
+              <code>.line &gt; .col col-#</code>
             </h3>
             <div class="doc-bd">
               <div class="doc line">
-                <div class="col-1-1">col-1-1</div>
+                <div class="col col-1-1">col col-1-1</div>
               </div>
               <div class="doc line">
-                <div class="col-1-5">col-1-5</div>
-                <div class="col-4-5">col-4-5</div>
+                <div class="col col-1-5">col col-1-5</div>
+                <div class="col col-4-5">col col-4-5</div>
               </div>
               <div class="doc line">
-                <div class="col-1-3">col-1-3</div>
-                <div class="col-2-3">col-2-3</div>
+                <div class="col col-1-3">col col-1-3</div>
+                <div class="col col-2-3">col col-2-3</div>
               </div>
               <div class="doc line">
-                <div class="col-2-5">col-2-5</div>
-                <div class="col-3-5">col-3-5</div>
+                <div class="col col-2-5">col col-2-5</div>
+                <div class="col col-3-5">col col-3-5</div>
               </div>
               <div class="doc line">
-                <div class="col-1-2">col-1-2</div>
-                <div class="col-1-4">col-1-4</div>
-                <div class="col-1-4">col-1-4</div>
+                <div class="col col-1-2">col col-1-2</div>
+                <div class="col col-1-4">col col-1-4</div>
+                <div class="col col-1-4">col col-1-4</div>
               </div>
               <h3>Nested columns</h3>
               <div class="doc line">
-                <div class="col-1-2">
-                  col-1-2
+                <div class="col col-1-2">
+                  col col-1-2
                   <div class="doc line">
-                    <div class="col-1-2">col-1-2</div>
-                    <div class="col-1-2">col-1-2</div>
+                    <div class="col col-1-2">col col-1-2</div>
+                    <div class="col col-1-2">col col-1-2</div>
                   </div>
                 </div>
-                <div class="col-1-2">
-                  col-1-2
+                <div class="col col-1-2">
+                  col col-1-2
                   <div class="doc line">
-                    <div class="col-1-2">col-1-2</div>
-                    <div class="col-1-2">col-1-2</div>
+                    <div class="col col-1-2">col col-1-2</div>
+                    <div class="col col-1-2">col col-1-2</div>
                   </div>
                 </div>
               </div>
@@ -147,52 +148,72 @@
           <section class="doc-example">
             <h2>Grid row with cutter space</h2>
             <h3>
-              Live-Example –
-              <code>.row &gt; .col-# &gt; .cell</code>
+              Live-Example
             </h3>
-          <div class="doc-bd">
+            <div class="doc-bd">
               <div class="doc row">
-                <div class="col-1-1"><div class="cell">col-1-1</div></div>
+                <div class="col col-1-1"><div class="cell">col col-1-1</div></div>
               </div>
               <div class="doc row">
-                <div class="col-1-5"><div class="cell">col-1-5</div></div>
-                <div class="col-4-5"><div class="cell">col-4-5</div></div>
+                <div class="col col-1-5"><div class="cell">col col-1-5</div></div>
+                <div class="col col-4-5"><div class="cell">col col-4-5</div></div>
               </div>
               <div class="doc row">
-                <div class="col-1-3"><div class="cell">col-1-3</div></div>
-                <div class="col-2-3"><div class="cell">col-2-3</div></div>
+                <div class="col col-1-3"><div class="cell">col col-1-3</div></div>
+                <div class="col col-2-3"><div class="cell">col col-2-3</div></div>
               </div>
               <div class="doc row">
-                <div class="col-2-5"><div class="cell">col-2-5</div></div>
-                <div class="col-3-5"><div class="cell">col-3-5</div></div>
+                <div class="col col-2-5"><div class="cell">col col-2-5</div></div>
+                <div class="col col-3-5"><div class="cell">col col-3-5</div></div>
               </div>
               <div class="doc row">
-                <div class="col-1-2"><div class="cell">col-1-2</div></div>
-                <div class="col-1-4"><div class="cell">col-1-4</div></div>
-                <div class="col-1-4"><div class="cell">col-1-4</div></div>
+                <div class="col col-1-2"><div class="cell">col col-1-2</div></div>
+                <div class="col col-1-4"><div class="cell">col col-1-4</div></div>
+                <div class="col col-1-4"><div class="cell">col col-1-4</div></div>
               </div>
               <h3>Nested columns</h3>
               <div class="doc row">
-                <div class="col-1-2">
+                <div class="col col-1-2">
                   <div class="cell">
-                    col-1-2
+                    col col-1-2-– boxsizing solution
                     <div class="doc row">
-                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
-                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                      <div class="col col-1-2">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                      </div>
+                      <div class="col col-1-2">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-1-2">
+                <div class="col col-1-2">
                   <div class="cell">
-                    col-1-2
+                    col col-1-2 – fallback 'cell' solution for old browser
                     <div class="doc row">
-                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
-                      <div class="col-1-2"><div class="cell">col-1-2</div></div>
+                      <div class="col col-1-2">
+                        <div class="cell">
+                          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                        </div>
+                      </div>
+                      <div class="col col-1-2">
+                        <div class="cell">
+                          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <p>
+              This solution will use the CSS3 <code>box-sizing</code> type <code>border-box</code>.
+              That usethe inner padding of the container for fixed grid gutter widths.
+            </p>
+            <h4>Old browser (IE7-, FF3.6-)</h4>
+            <p>
+              You can use the <code>.cell</code> element inner the <code>.col</code> parent element.
+              This <code>.cell</code> element in not necessary for the boxzising solution.
+            </p>
           </section>
         </section>
 

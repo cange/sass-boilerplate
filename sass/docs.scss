@@ -127,15 +127,13 @@ $basicSize: 14px;
       }
       &.line > *,
       &.row .cell {
-        background-color: rgba($docBlueLight, 0.3);
         @include  background-image(linear-gradient(rgba(white, .1), rgba(black, .1)));
         @include  border-radius;
         @include  box-shadow(0 0 0 1px white inset);
+        @include  text-shadow(1px 1px 0 darken($docBlueLight, 8));
+        background-color: rgba($docBlueLight, 0.3);
         color: white;
         font-size: 92%;
-        padding: 5px 0;
-        @include  text-shadow(1px 1px 0 darken($docBlueLight, 8));
-        text-align: center;
         &:hover, &:focus {
           background-color: rgba($docBlueLight, 0.5);
         }
