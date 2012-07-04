@@ -4,16 +4,15 @@ var Debug = (function ($) {
   var module = {},
     $panel = $(),
     supportLocalStorage = !!window['localStorage'],
-    $html = $('html')
+    $html = $('html'),
+    STORAGE_KEY
   ;
   module.options = {
-    colors: {
-      black: '#000',
-      white: '#fff'
-    },
+    colors: {},
+    gridSelector: '.page',
     storageKey: 'dev.domain.tld.debug'
   };
-  var STORAGE_KEY = module.options.storageKey;
+  STORAGE_KEY = module.options.storageKey;
 
   /**
    * @private
@@ -52,7 +51,7 @@ var Debug = (function ($) {
    */
   function buildColorSquares() {
     var htmlItem = '',
-      colors = module.colors,
+      colors = module.options.colors,
       color;
     // sort by alphabet
     colors = sortByAlphabet(colors);
@@ -62,7 +61,7 @@ var Debug = (function ($) {
         htmlItem += '<li>' + colorSquare(colors[color], color) + '</li>';
       }
     }
-    return '<ul class="debug-colors">' + htmlItem + '</ul>';
+    return '<ul class="debug-colors"><li>Platform colors:&nbsp;</li>' + htmlItem + '</ul>';
   }
   /**
    * @private
@@ -93,9 +92,45 @@ var Debug = (function ($) {
             '<span>Debug panel</span>'+
             '<a class="debug-toggle-boxes" href="#toggle">Boxes</a>'+
             '<a class="debug-toggle-grid" href="#toggle">Grid</a>'+
-            '<a href="static/styleguide">Styleguide</a>'+
+            '<a href="/styleguide">Styleguide</a>'+
           '</div>'+
         '</div>').prependTo('body');
+    }
+    $panel.find('.inner').append(buildColorSquares());
+  }
+  /**
+   * @private
+   * Will create a child element in a main containter that be used for the grid
+   * lines
+   */
+  function buildGridCanvas() {
+    var gridSelector = module.options.gridSelector,
+      $gridContainer = $(gridSelector),
+      // compensator is necessary for proper display of grid lines
+      compensator = 1;
+
+    if (!$('.debug-grid-container')[0]) {
+      $gridContainer
+        .addClass('debug-grid-container')
+        .append(
+          $('<div class="debug-grid-container-item" />')
+            .width($gridContainer.width() + compensator)
+        )
+      ;
+    }
+  }
+  /**
+   * @private
+   * Find active stored feature and set a feature class on the <html> element.
+   */
+  function detectActiveFeatrures() {
+    if (supportLocalStorage) {
+      var features = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      for (var feature in features) {
+        if (features[feature] === true) {
+          $html.addClass('debug-' + feature);
+        }
+      }
     }
   }
 
@@ -104,10 +139,12 @@ var Debug = (function ($) {
    * @constructor
    */
   module.init = function (options) {
-    $.extend(module.options, options || {});
-    buildPanel();
+    $.extend(this.options, options || {});
+    STORAGE_KEY = module.options.storageKey;
 
-    $panel.find('.inner').append(buildColorSquares());
+    buildPanel();
+    buildGridCanvas();
+    detectActiveFeatrures();
 
     $panel.find('.debug-toggle-boxes').click(function (event) {
       toggleHandler(event, {key: 'boxes'});
@@ -126,5 +163,8 @@ var Debug = (function ($) {
 $(function () {
   'use strict';
 
-  Debug.init();
+  Debug.init({
+    gridSelector: '.doc-page',
+    colors: {blue:'#0ff', green: 'green'}
+  });
 });

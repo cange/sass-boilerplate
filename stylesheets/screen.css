@@ -14,12 +14,12 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
-body {
+html {
   line-height: 1;
 }
 
@@ -497,7 +497,6 @@ p {
   background-image: -webkit-linear-gradient(#73c2ff, #40acff);
   background-image: -moz-linear-gradient(#73c2ff, #40acff);
   background-image: -o-linear-gradient(#73c2ff, #40acff);
-  background-image: -ms-linear-gradient(#73c2ff, #40acff);
   background-image: linear-gradient(#73c2ff, #40acff);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF73C2FF', endColorstr='#FF40ACFF');
@@ -506,21 +505,21 @@ p {
   cursor: pointer;
   font-family: Ubuntu, Lucida Sans, Lucida Grande, sans-serif;
   font-size: 12px;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   line-height: 2em;
   padding: 0 10px;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  -webkit-transition: all, 0.25s;
+  -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
-  -ms-transition: all 0.25s;
   -o-transition: all 0.25s;
-  transition: all, 0.25s;
+  transition: all 0.25s;
 }
 .btn:active, .btn:focus {
   outline: none;
@@ -537,9 +536,6 @@ p {
   -ms-animation: background-highlight infinite ease-out 1s;
   -o-animation: background-highlight infinite ease-out 1s;
   animation: background-highlight infinite ease-out 1s;
-}
-.btn {
-  *display: inline;
 }
 .btn::-moz-focus-inner {
   border: none;
@@ -737,6 +733,27 @@ p {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.6) inset;
 }
 
+.debug-grid .debug-grid-container {
+  position: relative;
+}
+.debug-grid .debug-grid-container-item {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(1%, rgba(0, 0, 0, 0.2)), color-stop(1%, rgba(0, 0, 0, 0)), color-stop(11.5%, rgba(0, 0, 0, 0)), color-stop(11.5%, rgba(0, 0, 0, 0.2)), color-stop(13.5%, rgba(255, 255, 255, 0.2)), color-stop(13.5%, rgba(0, 0, 0, 0)), color-stop(86.5%, rgba(0, 0, 0, 0)), color-stop(86.5%, rgba(255, 255, 255, 0.2)), color-stop(88.5%, rgba(0, 0, 0, 0.2)), color-stop(88.5%, rgba(0, 0, 0, 0)), color-stop(99%, rgba(0, 0, 0, 0)), color-stop(99%, rgba(0, 0, 0, 0.2)), color-stop(100%, rgba(255, 255, 255, 0.2)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 11.5%, rgba(0, 0, 0, 0.2) 11.5%, rgba(255, 255, 255, 0.2) 13.5%, rgba(0, 0, 0, 0) 13.5%, rgba(0, 0, 0, 0) 86.5%, rgba(255, 255, 255, 0.2) 86.5%, rgba(0, 0, 0, 0.2) 88.5%, rgba(0, 0, 0, 0) 88.5%, rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, 0.2) 99%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 11.5%, rgba(0, 0, 0, 0.2) 11.5%, rgba(255, 255, 255, 0.2) 13.5%, rgba(0, 0, 0, 0) 13.5%, rgba(0, 0, 0, 0) 86.5%, rgba(255, 255, 255, 0.2) 86.5%, rgba(0, 0, 0, 0.2) 88.5%, rgba(0, 0, 0, 0) 88.5%, rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, 0.2) 99%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 11.5%, rgba(0, 0, 0, 0.2) 11.5%, rgba(255, 255, 255, 0.2) 13.5%, rgba(0, 0, 0, 0) 13.5%, rgba(0, 0, 0, 0) 86.5%, rgba(255, 255, 255, 0.2) 86.5%, rgba(0, 0, 0, 0.2) 88.5%, rgba(0, 0, 0, 0) 88.5%, rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, 0.2) 99%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: linear-gradient(left, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 11.5%, rgba(0, 0, 0, 0.2) 11.5%, rgba(255, 255, 255, 0.2) 13.5%, rgba(0, 0, 0, 0) 13.5%, rgba(0, 0, 0, 0) 86.5%, rgba(255, 255, 255, 0.2) 86.5%, rgba(0, 0, 0, 0.2) 88.5%, rgba(0, 0, 0, 0) 88.5%, rgba(0, 0, 0, 0) 99%, rgba(0, 0, 0, 0.2) 99%, rgba(255, 255, 255, 0.2) 100%);
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  pointer-events: none;
+  background-position: -9px 0;
+  background-size: 80px auto;
+  margin-left: -10px;
+  height: 100%;
+  position: fixed;
+  padding: 0 10px;
+  top: 0;
+}
+
 .debug.active [title=todo]::after {
   content: "*";
   color: red;
@@ -748,13 +765,11 @@ p {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
-  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.1));
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
   opacity: 0.1;
   -webkit-transition: 0.2s 0.5s;
   -moz-transition: 0.2s 0.5s;
-  -ms-transition: 0.2s 0.5s;
   -o-transition: 0.2s 0.5s;
   transition: 0.2s 0.5s;
   border-bottom: 1px solid #999999;
@@ -763,6 +778,7 @@ p {
   position: fixed;
   top: -20px;
   width: 100%;
+  z-index: 100;
 }
 #debug-panel .inner {
   padding: 5px;
@@ -772,7 +788,6 @@ p {
   opacity: 1;
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
-  -ms-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
   top: 0;

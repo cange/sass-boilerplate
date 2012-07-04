@@ -41,7 +41,6 @@ body.doc {
   background-image: -webkit-linear-gradient(#333333, #222222);
   background-image: -moz-linear-gradient(#333333, #222222);
   background-image: -o-linear-gradient(#333333, #222222);
-  background-image: -ms-linear-gradient(#333333, #222222);
   background-image: linear-gradient(#333333, #222222);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
@@ -104,7 +103,6 @@ body.doc {
   background-image: -webkit-linear-gradient(#666666, #3d3c3f);
   background-image: -moz-linear-gradient(#666666, #3d3c3f);
   background-image: -o-linear-gradient(#666666, #3d3c3f);
-  background-image: -ms-linear-gradient(#666666, #3d3c3f);
   background-image: linear-gradient(#666666, #3d3c3f);
   color: #efefef;
   font-size: 14px;
@@ -126,7 +124,6 @@ body.doc {
   background-image: -webkit-linear-gradient(#cccccc 1px, rgba(0, 0, 0, 0) 1px), -webkit-linear-gradient(0 50%, #cccccc 2px, rgba(0, 0, 0, 0) 2px), -webkit-linear-gradient(rgba(206, 206, 206, 0.3) 1px, rgba(0, 0, 0, 0) 1px), -webkit-linear-gradient(0 50%, rgba(206, 206, 206, 0.3) 2px, rgba(0, 0, 0, 0) 2px);
   background-image: -moz-linear-gradient(#cccccc 1px, rgba(0, 0, 0, 0) 1px), -moz-linear-gradient(0 50%, #cccccc 2px, rgba(0, 0, 0, 0) 2px), -moz-linear-gradient(rgba(206, 206, 206, 0.3) 1px, rgba(0, 0, 0, 0) 1px), -moz-linear-gradient(0 50%, rgba(206, 206, 206, 0.3) 2px, rgba(0, 0, 0, 0) 2px);
   background-image: -o-linear-gradient(#cccccc 1px, rgba(0, 0, 0, 0) 1px), -o-linear-gradient(0 50%, #cccccc 2px, rgba(0, 0, 0, 0) 2px), -o-linear-gradient(rgba(206, 206, 206, 0.3) 1px, rgba(0, 0, 0, 0) 1px), -o-linear-gradient(0 50%, rgba(206, 206, 206, 0.3) 2px, rgba(0, 0, 0, 0) 2px);
-  background-image: -ms-linear-gradient(#cccccc 1px, rgba(0, 0, 0, 0) 1px), -ms-linear-gradient(0 50%, #cccccc 2px, rgba(0, 0, 0, 0) 2px), -ms-linear-gradient(rgba(206, 206, 206, 0.3) 1px, rgba(0, 0, 0, 0) 1px), -ms-linear-gradient(0 50%, rgba(206, 206, 206, 0.3) 2px, rgba(0, 0, 0, 0) 2px);
   background-image: linear-gradient(#cccccc 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(0 50%, #cccccc 2px, rgba(0, 0, 0, 0) 2px), linear-gradient(rgba(206, 206, 206, 0.3) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(0 50%, rgba(206, 206, 206, 0.3) 2px, rgba(0, 0, 0, 0) 2px);
   -webkit-background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   -moz-background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
@@ -157,7 +154,6 @@ body.doc {
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
   background-image: -o-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
-  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -209,11 +205,12 @@ a.doc {
   color: inherit;
   text-decoration: inherit;
   cursor: inherit;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   cursor: pointer;
   background-color: #89c2ea;
   color: #fefbf3;
@@ -228,18 +225,14 @@ a.doc {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   border-radius: 50px;
-  -webkit-transition: all, 1s;
+  -webkit-transition: all 1s;
   -moz-transition: all 1s;
-  -ms-transition: all 1s;
   -o-transition: all 1s;
-  transition: all, 1s;
+  transition: all 1s;
   min-width: 65px;
 }
 a.doc:active, a.doc:focus {
   outline: none;
-}
-a.doc {
-  *display: inline;
 }
 a.doc:hover {
   color: white;

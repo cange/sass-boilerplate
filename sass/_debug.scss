@@ -31,14 +31,44 @@
     .col-4-5 {  @include _debugBox(#006666, "col-4-5"); }
     .cell {     @include box-shadow(0 0 0 1px rgba(red, 0.6) inset); }
   }
-  // .debug-grid {
-  //   .doc-bd,
-  //   .page-body {
-  //     @include background-image(linear-gradient(left center, rgba(0,0,0, .2) 20px, rgba(0,0,0, .6) 20px, rgba(0,0,0, .6) 80px));
-  //     background-position: -10px 0;
-  //     background-size: 80px auto;
-  //   }
-  // }
+  .debug-grid {
+    .debug-grid-container {
+      position: relative;
+    }
+    .debug-grid-container-item {
+      $gutterOuterColor: rgba(white, .2);
+      $gutterInnerColor: rgba(black, .2);
+      $gutter: 10px!default;
+      $column: 80px!default;
+      // compensator is necessary for proper display of grid lines
+      $compensator: 1px;
+      $transparent: rgba(black, 0);
+      @include background-image(linear-gradient(left,
+        $gutterOuterColor 0%,
+        $gutterInnerColor 1%,
+        $transparent      1%,
+        $transparent      11.5%,
+        $gutterInnerColor 11.5%,
+        $gutterOuterColor 13.5%,
+        $transparent      13.5%,
+        $transparent      86.5%,
+        $gutterOuterColor 86.5%,
+        $gutterInnerColor 88.5%,
+        $transparent      88.5%,
+        $transparent      99%,
+        $gutterInnerColor 99%,
+        $gutterOuterColor 100%
+      ));
+      @include pointer-events(none);
+      background-position: -($gutter - 1) 0;
+      background-size: $column auto;
+      margin-left: -$gutter;
+      height: 100%;
+      position: fixed;
+      padding: 0 $gutter;
+      top: 0;
+    }
+  }
   .debug.active {
     [title=todo]::after {
       content: "*";
@@ -57,6 +87,7 @@
     position: fixed;
     top: -20px;
     width: 100%;
+    z-index: 100;
     .inner { padding: 5px; }
     &:hover {
       @include opacity(1);

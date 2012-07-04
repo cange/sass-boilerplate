@@ -48,7 +48,6 @@ $gridColumnName: "col" !default;
         .#{$name}-#{$n}-#{$m} {
           width: $width;
         }
-      /* @debug '-n #{$n} -m #{$m} -w #{$width} -d #{$double}'; */
       }
       @if $width == 50% {
         $double: 50%;
