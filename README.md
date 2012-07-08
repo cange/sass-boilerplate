@@ -26,11 +26,11 @@
 
 ## Setup
 
-    git clone git@github.com:cange/sass-boilerplate.git
-    mv sass-boilerplate your_project_name
+    git clone git@github.com:cange/sass-boilerplate.git your_project_name
+    cd your_project_name
     gem install bundler
     bundle install
-
+    
 [sass]: http://sass-lang.com
 [compass]: http://compass-style.org/reference/compass/
 [oocss]: https://github.com/stubbornella/oocss/wiki
