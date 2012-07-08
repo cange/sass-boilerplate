@@ -11,10 +11,18 @@
   
   This Boilerplate includes following basic definitions:
   
-  * Fluid grid system, with and without cutter space
   * SMACSS SASS structure
   * basic pragmatic headlines
   * CSS grid debug panel
+
+## Features
+
+  * Fluid grid system 
+  * Skeleton for styleguide documentation 
+  * Style debug panel with: 
+    * grid overlay 
+    * visualisation of box elements 
+    * color palette
 
 ## Setup
 
