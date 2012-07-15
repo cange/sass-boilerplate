@@ -1,10 +1,12 @@
-@mixin navigationsModule() {
+@import
+  "compass";
 
-  .nav {
-    @extend .unstyled-list;
-    li {
-      @extend .snap-left;
-    }
-  }
+// @module
+.nav {
+  @extend .unstyled-list;
+}
 
+// @submodule A navigation bar should be always horizontal
+.nav-bar > li {
+  @include horizontal-list();
 }

@@ -7,13 +7,7 @@
   "oocss",
   "base",
   "layouts",
-  "modules";
+  "modules",
+  "debug";
 
 @include gridBuilder;
-
-@include base;
-@include layouts;
-@include modules;
-
-@import "debug";
-@include debug;

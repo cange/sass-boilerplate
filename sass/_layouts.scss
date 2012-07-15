@@ -1,3 +1,6 @@
+@import
+  "settings";
+
 // @source http://smacss.com/book/type-layout
 //
 // Layout Rules
@@ -9,23 +12,21 @@
 // where appropriate.
 
 // Layout declarations like these
-@mixin layouts {
-  // @section
-  .page {
-    width: $pageWidth;
-    margin: auto;
-  }
-  // @section
-  .head {
-    background-color: $blueLightest;
-  }
-  // @section
-  .foot {
-    background-color: $blueLighter;
-  }
-  // @section
-  .body {
-    border: solid $blueDarkest;
-    border-width: 1px 0 0;
-  }
+// @section
+.page {
+  width: $pageWidth;
+  margin: auto;
+}
+// @section
+.head {
+  background-color: $blueLightest;
+}
+// @section
+.foot {
+  background-color: $blueLighter;
+}
+// @section
+.body {
+  border: solid $blueDarkest;
+  border-width: 1px 0 0;
 }

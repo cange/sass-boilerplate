@@ -1,3 +1,7 @@
+@import
+  "compass",
+  "css3";
+
 @mixin _debugBox($color, $name: false, $size: 1px) {
   background-color: rgba($color, 0.05);
   @include box-shadow(0 0 0 1px rgba($color, 0.2) inset);
@@ -14,110 +18,108 @@
   }
 }
 
-@mixin debug {
-  .debug-boxes {
-    /* grids debug */
-    .line {     @include _debugBox(#110011, "line"); }
-    .row {      @include _debugBox(#118811, "row"); }
-    .col-1-1 {  @include _debugBox(blue,    "col-1-1"); }
-    .col-1-2 {  @include _debugBox(aqua,    "col-1-2"); }
-    .col-1-3 {  @include _debugBox(yellow,  "col-1-3"); }
-    .col-1-4 {  @include _debugBox(red,     "col-1-4"); }
-    .col-1-5 {  @include _debugBox(fuchsia, "col-1-5"); }
-    .col-2-3 {  @include _debugBox(lime,    "col-2-3"); }
-    .col-3-4 {  @include _debugBox(#660000, "col-3-4"); }
-    .col-2-5 {  @include _debugBox(#660066, "col-2-5"); }
-    .col-3-5 {  @include _debugBox(#666600, "col-3-5"); }
-    .col-4-5 {  @include _debugBox(#006666, "col-4-5"); }
-    .cell {     @include box-shadow(0 0 0 1px rgba(red, 0.6) inset); }
+.debug-boxes {
+  /* grids debug */
+  .line {     @include _debugBox(#110011, "line"); }
+  .row {      @include _debugBox(#118811, "row"); }
+  .col-1-1 {  @include _debugBox(blue,    "col-1-1"); }
+  .col-1-2 {  @include _debugBox(aqua,    "col-1-2"); }
+  .col-1-3 {  @include _debugBox(yellow,  "col-1-3"); }
+  .col-1-4 {  @include _debugBox(red,     "col-1-4"); }
+  .col-1-5 {  @include _debugBox(fuchsia, "col-1-5"); }
+  .col-2-3 {  @include _debugBox(lime,    "col-2-3"); }
+  .col-3-4 {  @include _debugBox(#660000, "col-3-4"); }
+  .col-2-5 {  @include _debugBox(#660066, "col-2-5"); }
+  .col-3-5 {  @include _debugBox(#666600, "col-3-5"); }
+  .col-4-5 {  @include _debugBox(#006666, "col-4-5"); }
+  .cell {     @include box-shadow(0 0 0 1px rgba(red, 0.6) inset); }
+}
+.debug-grid {
+  .debug-grid-container {
+    position: relative;
   }
-  .debug-grid {
-    .debug-grid-container {
-      position: relative;
-    }
-    .debug-grid-container-item {
-      $gutterOuterColor: rgba(white, .2);
-      $gutterInnerColor: rgba(black, .2);
-      $gutter: 10px!default;
-      $column: 80px!default;
-      // compensator is necessary for proper display of grid lines
-      $compensator: 1px;
-      $transparent: rgba(black, 0);
-      @include background-image(linear-gradient(left,
-        $gutterOuterColor 0%,
-        $gutterInnerColor 1%,
-        $transparent      1%,
-        $transparent      11.5%,
-        $gutterInnerColor 11.5%,
-        $gutterOuterColor 13.5%,
-        $transparent      13.5%,
-        $transparent      86.5%,
-        $gutterOuterColor 86.5%,
-        $gutterInnerColor 88.5%,
-        $transparent      88.5%,
-        $transparent      99%,
-        $gutterInnerColor 99%,
-        $gutterOuterColor 100%
-      ));
-      @include pointer-events(none);
-      background-position: -($gutter - 1) 0;
-      background-size: $column auto;
-      margin-left: -$gutter;
-      height: 100%;
-      position: fixed;
-      padding: 0 $gutter;
-      top: 0;
-    }
-  }
-  .debug.active {
-    [title=todo]::after {
-      content: "*";
-      color: red;
-      position: absolute;
-    }
-  }
-  // @module
-  #debug-panel {
-    @include background-image(linear-gradient(rgba(black, 0) 80%, rgba(black, 0.1)));
-    @include opacity(0.1);
-    @include transition(0.2s 0.5s);
-    border-bottom: 1px solid #999999;
-    background-color: #cccccc;
-    background-color: rgba(#cccccc, 0.8);
+  .debug-grid-container-item {
+    $gutterOuterColor: rgba(white, .2);
+    $gutterInnerColor: rgba(black, .2);
+    $gutter: 10px!default;
+    $column: 80px!default;
+    // compensator is necessary for proper display of grid lines
+    $compensator: 1px;
+    $transparent: rgba(black, 0);
+    @include background-image(linear-gradient(left,
+      $gutterOuterColor 0%,
+      $gutterInnerColor 1%,
+      $transparent      1%,
+      $transparent      11.5%,
+      $gutterInnerColor 11.5%,
+      $gutterOuterColor 13.5%,
+      $transparent      13.5%,
+      $transparent      86.5%,
+      $gutterOuterColor 86.5%,
+      $gutterInnerColor 88.5%,
+      $transparent      88.5%,
+      $transparent      99%,
+      $gutterInnerColor 99%,
+      $gutterOuterColor 100%
+    ));
+    @include pointer-events(none);
+    background-position: -($gutter - 1) 0;
+    background-size: $column auto;
+    margin-left: -$gutter;
+    height: 100%;
     position: fixed;
-    top: -20px;
-    width: 100%;
-    z-index: 100;
-    .inner { padding: 5px; }
-    &:hover {
-      @include opacity(1);
-      @include transition-delay(0s);
-      top: 0;
-    }
-    a {
-      @include unstyled-link;
-      &:hover { color: black; }
-      cursor: pointer;
-      text-decoration: none;
-      &:not(:first-child) {
-        &::before {
-          content: "|";
-          color: black;
-          padding: 0 5px;
-        }
+    padding: 0 $gutter;
+    top: 0;
+  }
+}
+.debug.active {
+  [title=todo]::after {
+    content: "*";
+    color: red;
+    position: absolute;
+  }
+}
+// @module
+#debug-panel {
+  @include background-image(linear-gradient(rgba(black, 0) 80%, rgba(black, 0.1)));
+  @include opacity(0.1);
+  @include transition(0.2s 0.5s);
+  border-bottom: 1px solid #999999;
+  background-color: #cccccc;
+  background-color: rgba(#cccccc, 0.8);
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  z-index: 100;
+  .inner { padding: 5px; }
+  &:hover {
+    @include opacity(1);
+    @include transition-delay(0s);
+    top: 0;
+  }
+  a {
+    @include unstyled-link;
+    &:hover { color: black; }
+    cursor: pointer;
+    text-decoration: none;
+    &:not(:first-child) {
+      &::before {
+        content: "|";
+        color: black;
+        padding: 0 5px;
       }
     }
   }
-  .debug-colors {
-    float: right;
-    list-style: none;
-    li { float: left; }
-  }
-  .debug-color {
-    border: 1px solid black;
-    display: inline-block;
-    height: 10px;
-    margin-right: 5px;
-    width: 10px;
-  }
+}
+.debug-colors {
+  float: right;
+  list-style: none;
+  li { float: left; }
+}
+.debug-color {
+  border: 1px solid black;
+  display: inline-block;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
 }

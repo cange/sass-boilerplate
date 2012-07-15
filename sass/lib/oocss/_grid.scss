@@ -4,9 +4,7 @@
 // @deprecated is recommented to use the  /lib/utilities/_grid.scss system
 // Definition
 @mixin oocssClearfix {
-  overflow: hidden;
-  *overflow: visible;
-  *zoom: 1;
+  @extend .clearfix;
 }
 
 @mixin oocssGridLast {

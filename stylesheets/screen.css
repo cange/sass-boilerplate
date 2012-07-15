@@ -59,17 +59,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * They should be kept simple for optimal extensibility.
  * In the best case you need never use this selectors in HTML.
  */
-.snap-right, .media .img-ext {
+.snap-right {
   float: right;
 }
 
-.snap-left, .media .img, .nav li {
+.snap-left {
   float: left;
 }
 
 .clearfix, .media, .row,
 .line {
   *zoom: 1;
+}
+.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
+.line {
+  overflow: hidden;
 }
 .clearfix::before, .media::before, .row::before,
 .line::before, .clearfix::after, .media::after, .row::after,
@@ -131,11 +135,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * They should be kept simple for optimal extensibility.
  * In the best case you need never use this selectors in HTML.
  */
-.snap-right, .media .img-ext {
+.snap-right {
   float: right;
 }
 
-.snap-left, .media .img, .nav li {
+.snap-left {
   float: left;
 }
 
@@ -143,77 +147,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .line {
   *zoom: 1;
 }
-.clearfix::before, .media::before, .row::before,
-.line::before, .clearfix::after, .media::after, .row::after,
-.line::after {
-  content: "";
-  display: table;
-}
-.clearfix::after, .media::after, .row::after,
-.line::after {
-  clear: both;
-}
-
-.ltr {
-  text-align: left;
-}
-
-.rtl {
-  text-align: right;
-}
-
-.cntr {
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.link {
-  text-decoration: underline;
-}
-.link:hover, .link:focus {
-  text-decoration: none;
-}
-
-.inverted-link {
-  text-decoration: none;
-}
-.inverted-link:hover, .inverted-link:focus {
-  text-decoration: underline;
-}
-
-.unstyled-list, .nav {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-/**
- * These rules serve mainly as extensions (SASS context) sub definitions.
- * They should be kept simple for optimal extensibility.
- * In the best case you need never use this selectors in HTML.
- */
-.snap-right, .media .img-ext {
-  float: right;
-}
-
-.snap-left, .media .img, .nav li {
-  float: left;
-}
-
-.clearfix, .media, .row,
+.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
 .line {
-  *zoom: 1;
+  overflow: hidden;
 }
 .clearfix::before, .media::before, .row::before,
 .line::before, .clearfix::after, .media::after, .row::after,
@@ -291,15 +227,89 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   </div>
  */
 .media .img {
-  /*margin-right: 10px;*/
+  float: left;
 }
-
 .media .img img {
   display: block;
 }
-
 .media .img-ext {
-  /*margin-left: 10px;*/
+  float: right;
+}
+
+/**
+ * These rules serve mainly as extensions (SASS context) sub definitions.
+ * They should be kept simple for optimal extensibility.
+ * In the best case you need never use this selectors in HTML.
+ */
+.snap-right {
+  float: right;
+}
+
+.snap-left {
+  float: left;
+}
+
+.clearfix, .media, .row,
+.line {
+  *zoom: 1;
+}
+.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
+.line {
+  overflow: hidden;
+}
+.clearfix::before, .media::before, .row::before,
+.line::before, .clearfix::after, .media::after, .row::after,
+.line::after {
+  content: "";
+  display: table;
+}
+.clearfix::after, .media::after, .row::after,
+.line::after {
+  clear: both;
+}
+
+.ltr {
+  text-align: left;
+}
+
+.rtl {
+  text-align: right;
+}
+
+.cntr {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover, .link:focus {
+  text-decoration: none;
+}
+
+.inverted-link {
+  text-decoration: none;
+}
+.inverted-link:hover, .inverted-link:focus {
+  text-decoration: underline;
+}
+
+.unstyled-list, .nav {
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
 
 /**
@@ -313,96 +323,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
  *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0)
  */
-@-webkit-keyframes background-highlight {
-  0%, 100% {
-    background-position: 0 0;
-  }
-
-  40% {
-    background-position: 0 -18px;
-  }
-}
-
-@-moz-keyframes background-highlight {
-  0%, 100% {
-    background-position: 0 0;
-  }
-
-  40% {
-    background-position: 0 -18px;
-  }
-}
-
-@keyframes background-highlight {
-  0%, 100% {
-    background-position: 0 0;
-  }
-
-  40% {
-    background-position: 0 -18px;
-  }
-}
-
-.col {
-  display: inline;
-  float: left;
-}
-
-.row {
-  margin-left: -20px;
-}
-
-.col-1-1 {
-  width: 100%;
-}
-
-.col-1-2 {
-  width: 50%;
-}
-
-.col-1-3 {
-  width: 33.333%;
-}
-
-.col-2-3 {
-  width: 66.667%;
-}
-
-.col-1-4 {
-  width: 25%;
-}
-
-.col-3-4 {
-  width: 75%;
-}
-
-.col-1-5 {
-  width: 20%;
-}
-
-.col-2-5 {
-  width: 40%;
-}
-
-.col-3-5 {
-  width: 60%;
-}
-
-.col-4-5 {
-  width: 80%;
-}
-
-.no-boxsizing .row .cell {
-  margin-left: 20px;
-}
-
-.boxsizing .row > .col {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-left: 20px;
-}
-
 h1, .h1 {
   font-size: 22px;
   font-weight: bold;
@@ -566,6 +486,63 @@ p {
 
 .btn-fixed {
   min-width: 140px;
+}
+
+@-webkit-keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 -18px;
+  }
+}
+
+@-moz-keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 -18px;
+  }
+}
+
+@keyframes background-highlight {
+  0%, 100% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 -18px;
+  }
+}
+
+.nav-bar > li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+.nav-bar > li li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.nav-bar > li li:first-child, .nav-bar > li li.first {
+  padding-left: 0;
+}
+.nav-bar > li li:last-child {
+  padding-right: 0;
+}
+.nav-bar > li li.last {
+  padding-right: 0;
 }
 
 .debug-boxes {
@@ -825,4 +802,64 @@ p {
   height: 10px;
   margin-right: 5px;
   width: 10px;
+}
+
+.col {
+  display: inline;
+  float: left;
+}
+
+.row {
+  margin-left: -20px;
+}
+
+.col-1-1 {
+  width: 100%;
+}
+
+.col-1-2 {
+  width: 50%;
+}
+
+.col-1-3 {
+  width: 33.333%;
+}
+
+.col-2-3 {
+  width: 66.667%;
+}
+
+.col-1-4 {
+  width: 25%;
+}
+
+.col-3-4 {
+  width: 75%;
+}
+
+.col-1-5 {
+  width: 20%;
+}
+
+.col-2-5 {
+  width: 40%;
+}
+
+.col-3-5 {
+  width: 60%;
+}
+
+.col-4-5 {
+  width: 80%;
+}
+
+.no-boxsizing .row .cell {
+  margin-left: 20px;
+}
+
+.boxsizing .row > .col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px;
 }

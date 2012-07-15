@@ -9,12 +9,11 @@ $default-border-radius: 4px;
 $default-transition-duration: 0.25s;
 
 // spaces
-$spaceS:  5px;
-$spaceM:  $spaceS * 2;
-$spaceL:  $spaceM * 2;
-$spaceXL: $spaceL * 2;
+$spaceS:        5px;
+$spaceM:        $spaceS * 2;
+$spaceL:        $spaceM * 2;
+$spaceXL:       $spaceL * 2;
 
-// …
 $pageWidth: 960px;
 
 // icon sizes
@@ -31,8 +30,6 @@ $iconSizeXXXL:  128;
 $fontRegular: Ubuntu, Lucida Sans, Lucida Grande, sans-serif;
 $fontAlternative: DejaVu Serif, Georgia, New Century Schoolbook, Nimbus Roman No9 L, serif;
 
-// …
-
 // font sizes
 $fontSizeS:     10px;
 $fontSizeM:     12px;
@@ -40,8 +37,6 @@ $fontSizeL:     14px;
 $fontSizeXL:    16px;
 $fontSizeXXL:   20px;
 $fontSizeXXXL:  22px;
-
-// …
 
 // colors
 $blueLightest:  #73c2ff;
@@ -51,5 +46,3 @@ $blue:          blue;
 $blueDark:      #4040ff;
 $blueDarker:    #2f2fc0;
 $blueDarkest:   #0000a7;
-
-// …

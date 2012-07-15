@@ -1,4 +1,6 @@
-@import "../utilities/utils";
+@import
+  "utilities/utils";
+
 // based on the oocss by stubbornella (Nicole Sullivan)
 // @link https://github.com/stubbornella/oocss/blob/master/core/media/media.css
 /**
@@ -23,15 +25,7 @@
  */
 .media {
   @extend .clearfix;
-}
-.media .img {
-  @extend .snap-left;
-  /*margin-right: 10px;*/
-}
-.media .img img {
-  display: block;
-}
-.media .img-ext {
-  @extend .snap-right;
-  /*margin-left: 10px;*/
+  .img { float: left; }
+  .img img { display: block; }
+  .img-ext { float: right; }
 }
