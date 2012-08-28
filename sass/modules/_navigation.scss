@@ -3,7 +3,7 @@
 
 // @module
 .nav {
-  @extend .unstyled-list;
+  @extend %unstyled-list;
 }
 
 // @submodule A navigation bar should be always horizontal

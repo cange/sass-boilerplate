@@ -59,11 +59,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * They should be kept simple for optimal extensibility.
  * In the best case you need never use this selectors in HTML.
  */
-.snap-right {
+.snap-right, .media-img-ext {
   float: right;
 }
 
-.snap-left {
+.snap-left, .media-img {
   float: left;
 }
 
@@ -71,8 +71,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .line {
   *zoom: 1;
 }
-.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
-.line {
+.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row,
+.lt-ie9 .line {
   overflow: hidden;
 }
 .clearfix::before, .media::before, .row::before,
@@ -110,206 +110,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   visibility: hidden;
 }
 
-.link {
-  text-decoration: underline;
-}
-.link:hover, .link:focus {
-  text-decoration: none;
-}
-
-.inverted-link {
-  text-decoration: none;
-}
-.inverted-link:hover, .inverted-link:focus {
-  text-decoration: underline;
-}
-
-.unstyled-list, .nav {
+.nav {
   margin: 0;
   list-style: none;
   padding: 0;
 }
 
 /**
- * These rules serve mainly as extensions (SASS context) sub definitions.
- * They should be kept simple for optimal extensibility.
- * In the best case you need never use this selectors in HTML.
- */
-.snap-right {
-  float: right;
-}
+  @module
+  Based on the oocss by stubbornella (Nicole Sullivan)
+  @link https://github.com/stubbornella/oocss/blob/master/core/media/media.css
 
-.snap-left {
-  float: left;
-}
+  Use any sized image or flash for the right or left area. Any content in the
+  body including nesting other media blocks.
+  @example
 
-.clearfix, .media, .row,
-.line {
-  *zoom: 1;
-}
-.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
-.line {
-  overflow: hidden;
-}
-.clearfix::before, .media::before, .row::before,
-.line::before, .clearfix::after, .media::after, .row::after,
-.line::after {
-  content: "";
-  display: table;
-}
-.clearfix::after, .media::after, .row::after,
-.line::after {
-  clear: both;
-}
-
-.ltr {
-  text-align: left;
-}
-
-.rtl {
-  text-align: right;
-}
-
-.cntr {
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.link {
-  text-decoration: underline;
-}
-.link:hover, .link:focus {
-  text-decoration: none;
-}
-
-.inverted-link {
-  text-decoration: none;
-}
-.inverted-link:hover, .inverted-link:focus {
-  text-decoration: underline;
-}
-
-.unstyled-list, .nav {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-/**
- * Use any sized image or flash for the right or left area. Any content in the
- * body including nesting other media blocks.
- * Example:
-  <div class="media">
-    <a href="http://twitter.com/stubbornella" class="img">
-      <img src="http://placehold.it/16" alt="1day">
-    </a>
-    <div class="bd">event date</div>
-  </div>
-  <div class="media">
-    <a href="http://twitter.com/stubbornella" class="img">
-      <img src="http://placehold.it/64x64" alt="img">
-    </a>
-    <a href="http://twitter.com/stubbornella" class="img-ext">X</a>
-    <div class="bd">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="media">
+      <a href="http://twitter.com/stubbornella" class="media-img">
+        <img src="http://placehold.it/16" alt="1day">
+      </a>
+      <div class="media-bd">event date</div>
     </div>
-  </div>
+    <div class="media">
+      <a href="http://twitter.com/stubbornella" class="media-img">
+        <img src="http://placehold.it/64x64" alt="img">
+      </a>
+      <a href="http://twitter.com/stubbornella" class="media-img-ext">X</a>
+      <div class="media-bd">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
  */
-.media .img {
-  float: left;
-}
-.media .img img {
-  display: block;
-}
-.media .img-ext {
-  float: right;
-}
-
-/**
- * These rules serve mainly as extensions (SASS context) sub definitions.
- * They should be kept simple for optimal extensibility.
- * In the best case you need never use this selectors in HTML.
- */
-.snap-right {
-  float: right;
-}
-
-.snap-left {
-  float: left;
-}
-
-.clearfix, .media, .row,
-.line {
-  *zoom: 1;
-}
-.lt-ie9 .clearfix, .lt-ie9 .media, .lt-ie9 .row, .lt-ie9
-.line {
-  overflow: hidden;
-}
-.clearfix::before, .media::before, .row::before,
-.line::before, .clearfix::after, .media::after, .row::after,
-.line::after {
-  content: "";
-  display: table;
-}
-.clearfix::after, .media::after, .row::after,
-.line::after {
-  clear: both;
-}
-
-.ltr {
-  text-align: left;
-}
-
-.rtl {
-  text-align: right;
-}
-
-.cntr {
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
+.media-img img {
   display: block;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
-.link {
-  text-decoration: underline;
-}
-.link:hover, .link:focus {
-  text-decoration: none;
-}
-
-.inverted-link {
-  text-decoration: none;
-}
-.inverted-link:hover, .inverted-link:focus {
-  text-decoration: underline;
-}
-
-.unstyled-list, .nav {
-  margin: 0;
-  list-style: none;
-  padding: 0;
+.media-img-ext img {
+  display: block;
 }
 
 /**
@@ -822,11 +659,11 @@ p {
 }
 
 .col-1-3 {
-  width: 33.333%;
+  width: 33.33333%;
 }
 
 .col-2-3 {
-  width: 66.667%;
+  width: 66.66667%;
 }
 
 .col-1-4 {

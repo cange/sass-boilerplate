@@ -39,13 +39,13 @@
 
 // Link behaviors
 // @abstract
-.link {
+%link {
   text-decoration: underline;
   &:hover, &:focus {
     text-decoration: none;
   }
 }
-.inverted-link {
+%inverted-link {
   text-decoration: none;
   &:hover, &:focus {
     text-decoration: underline;
@@ -53,7 +53,7 @@
 }
 // List helper
 // @abstract
-.unstyled-list {
+%unstyled-list {
   margin: 0;
   list-style: none;
   padding: 0;
